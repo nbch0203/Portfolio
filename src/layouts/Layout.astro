@@ -1,24 +1,76 @@
+---
+// src/layouts/Layout.astro
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = 'Mi Portfolio', 
+	description = 'Portfolio personal - Desarrollador Web' 
+} = Astro.props;
+---
+
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Mi portfolio</title>
+		<title>{title}</title>
 	</head>
 	<body>
-		<h1>Hello world</h1>
-
 		<slot />
 	</body>
 </html>
 
-<style>
+<style is:global>
+	/* Variables CSS - PERSONALIZA AQUÍ TUS COLORES */
+	:root {
+		--color-primary: #3245ff;
+		--color-secondary: #bc52ee;
+		--color-text: #111827;
+		--color-text-light: #4b5563;
+		--color-background: #ffffff;
+		--color-background-alt: #f9fafb;
+	}
+
+	/* Reset básico */
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
 	html,
 	body {
-		margin: 0;
 		width: 100%;
 		height: 100%;
+		font-family: Inter, Roboto, 'Helvetica Neue', Arial, sans-serif;
+		color: var(--color-text);
+		background: var(--color-background);
+	}
+
+	/* Tipografía base */
+	h1, h2, h3, h4, h5, h6 {
+		line-height: 1.2;
+		font-weight: 600;
+	}
+
+	p {
+		line-height: 1.6;
+	}
+
+	/* Enlaces */
+	a {
+		color: var(--color-primary);
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+
+	a:hover {
+		opacity: 0.8;
 	}
 </style>

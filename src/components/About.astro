@@ -1,0 +1,113 @@
+---
+// src/components/About.astro
+// PERSONALIZA: Tu información "Sobre mí"
+const aboutInfo = {
+	title: 'Sobre mí',
+	description: `Soy un desarrollador apasionado por crear soluciones web 
+	              innovadoras. Me encanta aprender nuevas tecnologías y 
+	              resolver problemas complejos.`,
+	skills: [
+		'JavaScript/TypeScript',
+		'React & Astro',
+		'Node.js',
+		'CSS/Tailwind',
+		'Git & GitHub',
+		'Bases de datos SQL/NoSQL'
+	]
+};
+---
+
+<section id="about">
+	<div class="container">
+		<h2>{aboutInfo.title}</h2>
+		<div class="about-content">
+			<div class="about-text">
+				<p>{aboutInfo.description}</p>
+			</div>
+			
+			<div class="about-skills">
+				<h3>Habilidades</h3>
+				<div class="skills-grid">
+					{aboutInfo.skills.map(skill => (
+						<div class="skill-item">{skill}</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	/* PERSONALIZA AQUÍ LA SECCIÓN ABOUT */
+	#about {
+		padding: 5rem 2rem;
+		background: var(--color-background-alt);
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	h2 {
+		font-size: clamp(2rem, 4vw, 3rem);
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.about-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: start;
+	}
+
+	.about-text p {
+		font-size: 1.125rem;
+		line-height: 1.8;
+		color: var(--color-text-light);
+	}
+
+	h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	/* Grid de habilidades */
+	.skills-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: 1rem;
+	}
+
+	.skill-item {
+		background: white;
+		padding: 1rem;
+		border-radius: 8px;
+		text-align: center;
+		font-weight: 500;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+		transition: all 0.3s ease;
+	}
+
+	.skill-item:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		#about {
+			padding: 3rem 1.5rem;
+		}
+
+		.about-content {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.skills-grid {
+			grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+		}
+	}
+</style>

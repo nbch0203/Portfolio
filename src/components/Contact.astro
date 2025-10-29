@@ -1,0 +1,174 @@
+---
+// src/components/Contact.astro
+// PERSONALIZA: Tu información de contacto
+const contactInfo = {
+	title: 'Contacto',
+	description: '¿Tienes un proyecto en mente? ¡Hablemos!',
+	email: 'tu@email.com',
+	social: [
+		{
+			name: 'GitHub',
+			url: 'https://github.com/tuusuario',
+			icon: '🐙'
+		},
+		{
+			name: 'LinkedIn',
+			url: 'https://linkedin.com/in/tuusuario',
+			icon: '💼'
+		},
+		{
+			name: 'Twitter',
+			url: 'https://twitter.com/tuusuario',
+			icon: '🐦'
+		}
+	]
+};
+---
+
+<section id="contact">
+	<div class="container">
+		<h2>{contactInfo.title}</h2>
+		<p class="subtitle">{contactInfo.description}</p>
+		
+		<div class="contact-content">
+			<div class="contact-info">
+				<div class="email-card">
+					<h3>Email</h3>
+					<a href={`mailto:${contactInfo.email}`}>
+						{contactInfo.email}
+					</a>
+				</div>
+				
+				<div class="social-links">
+					<h3>Redes sociales</h3>
+					<div class="social-grid">
+						{contactInfo.social.map(social => (
+							<a 
+								href={social.url} 
+								class="social-link" 
+								target="_blank" 
+								rel="noopener"
+								aria-label={social.name}
+							>
+								<span class="icon">{social.icon}</span>
+								<span>{social.name}</span>
+							</a>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	/* PERSONALIZA AQUÍ LA SECCIÓN DE CONTACTO */
+	#contact {
+		padding: 5rem 2rem;
+		background: var(--color-background-alt);
+	}
+
+	.container {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	h2 {
+		font-size: clamp(2rem, 4vw, 3rem);
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	.subtitle {
+		text-align: center;
+		color: var(--color-text-light);
+		margin-bottom: 3rem;
+		font-size: 1.125rem;
+	}
+
+	.contact-content {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.contact-info {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	/* Tarjeta de email */
+	.email-card {
+		background: white;
+		padding: 2rem;
+		border-radius: 12px;
+		text-align: center;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+	}
+
+	.email-card h3 {
+		font-size: 1.25rem;
+		margin-bottom: 1rem;
+		color: var(--color-text-light);
+	}
+
+	.email-card a {
+		font-size: 1.5rem;
+		font-weight: 500;
+		color: var(--color-primary);
+	}
+
+	/* Redes sociales */
+	.social-links {
+		background: white;
+		padding: 2rem;
+		border-radius: 12px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+	}
+
+	.social-links h3 {
+		font-size: 1.25rem;
+		margin-bottom: 1.5rem;
+		text-align: center;
+		color: var(--color-text-light);
+	}
+
+	.social-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: 1rem;
+	}
+
+	.social-link {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 1rem;
+		background: var(--color-background-alt);
+		border-radius: 8px;
+		transition: all 0.3s ease;
+		color: var(--color-text);
+	}
+
+	.social-link:hover {
+		background: var(--color-primary);
+		color: white;
+		transform: translateY(-2px);
+	}
+
+	.icon {
+		font-size: 1.5rem;
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		#contact {
+			padding: 3rem 1.5rem;
+		}
+
+		.social-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

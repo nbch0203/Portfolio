@@ -1,0 +1,141 @@
+---
+// src/components/Hero.astro
+// PERSONALIZA: Tu información personal
+const personalInfo = {
+	name: 'Tu Nombre',
+	title: 'Desarrollador Web Full Stack',
+	description: 'Especializado en crear experiencias web modernas y accesibles',
+	cta: {
+		primary: 'Ver proyectos',
+		secondary: 'Contáctame'
+	}
+};
+---
+
+<section id="hero">
+	<div class="hero-background"></div>
+	<div class="hero-content">
+		<h1>
+			Hola, soy <span class="highlight">{personalInfo.name}</span>
+		</h1>
+		<h2>{personalInfo.title}</h2>
+		<p>{personalInfo.description}</p>
+		
+		<div class="hero-buttons">
+			<a href="#projects" class="btn btn-primary">
+				{personalInfo.cta.primary}
+			</a>
+			<a href="#contact" class="btn btn-secondary">
+				{personalInfo.cta.secondary}
+			</a>
+		</div>
+	</div>
+</section>
+
+<style>
+	/* PERSONALIZA AQUÍ LA SECCIÓN HERO */
+	#hero {
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 2rem;
+		overflow: hidden;
+	}
+
+	/* Fondo con degradado - Puedes cambiar los colores */
+	.hero-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		opacity: 0.1;
+		z-index: -1;
+	}
+
+	.hero-content {
+		max-width: 800px;
+		text-align: center;
+	}
+
+	h1 {
+		font-size: clamp(2rem, 5vw, 4rem);
+		margin-bottom: 1rem;
+	}
+
+	/* Texto destacado - Cambia el gradiente aquí */
+	.highlight {
+		background: linear-gradient(90deg, #3245ff 0%, #bc52ee 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	h2 {
+		font-size: clamp(1.5rem, 3vw, 2.5rem);
+		font-weight: 400;
+		margin-bottom: 1.5rem;
+		color: var(--color-text-light);
+	}
+
+	p {
+		font-size: clamp(1rem, 2vw, 1.25rem);
+		margin-bottom: 2rem;
+		color: var(--color-text-light);
+	}
+
+	/* Botones - Personaliza colores y estilos */
+	.hero-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.btn {
+		padding: 1rem 2rem;
+		border-radius: 10px;
+		font-weight: 500;
+		transition: all 0.3s ease;
+		cursor: pointer;
+	}
+
+	.btn-primary {
+		background: linear-gradient(90deg, #3245ff 0%, #bc52ee 100%);
+		color: white;
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 10px 20px rgba(50, 69, 255, 0.3);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		border: 2px solid var(--color-primary);
+		color: var(--color-primary);
+	}
+
+	.btn-secondary:hover {
+		background: var(--color-primary);
+		color: white;
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		#hero {
+			min-height: 80vh;
+		}
+
+		.hero-buttons {
+			flex-direction: column;
+		}
+
+		.btn {
+			width: 100%;
+		}
+	}
+</style>

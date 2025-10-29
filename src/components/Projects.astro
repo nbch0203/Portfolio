@@ -1,0 +1,170 @@
+---
+// src/components/Projects.astro
+// PERSONALIZA: Tus proyectos
+const projects = [
+	{
+		title: 'Proyecto 1',
+		description: 'Descripción breve del proyecto y las tecnologías utilizadas',
+		image: '/placeholder-project.jpg', // Añade tus imágenes en /public
+		link: 'https://github.com/tuusuario/proyecto1',
+		tags: ['React', 'TypeScript', 'API']
+	},
+	{
+		title: 'Proyecto 2',
+		description: 'Otro proyecto interesante que has desarrollado',
+		image: '/placeholder-project.jpg',
+		link: 'https://github.com/tuusuario/proyecto2',
+		tags: ['Astro', 'CSS', 'JavaScript']
+	},
+	{
+		title: 'Proyecto 3',
+		description: 'Más proyectos para mostrar tu trabajo',
+		image: '/placeholder-project.jpg',
+		link: 'https://github.com/tuusuario/proyecto3',
+		tags: ['Node.js', 'MongoDB', 'Express']
+	}
+];
+---
+
+<section id="projects">
+	<div class="container">
+		<h2>Proyectos</h2>
+		<p class="subtitle">Algunos de los proyectos en los que he trabajado</p>
+		
+		<div class="projects-grid">
+			{projects.map(project => (
+				<article class="project-card">
+					<div class="project-image">
+						<img src={project.image} alt={project.title} />
+					</div>
+					<div class="project-content">
+						<h3>{project.title}</h3>
+						<p>{project.description}</p>
+						<div class="project-tags">
+							{project.tags.map(tag => (
+								<span class="tag">{tag}</span>
+							))}
+						</div>
+						<a href={project.link} class="project-link" target="_blank" rel="noopener">
+							Ver proyecto →
+						</a>
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	/* PERSONALIZA AQUÍ LA SECCIÓN DE PROYECTOS */
+	#projects {
+		padding: 5rem 2rem;
+		background: var(--color-background);
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	h2 {
+		font-size: clamp(2rem, 4vw, 3rem);
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	.subtitle {
+		text-align: center;
+		color: var(--color-text-light);
+		margin-bottom: 3rem;
+		font-size: 1.125rem;
+	}
+
+	/* Grid de proyectos */
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.project-card {
+		background: white;
+		border-radius: 12px;
+		overflow: hidden;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		transition: all 0.3s ease;
+	}
+
+	.project-card:hover {
+		transform: translateY(-8px);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+	}
+
+	.project-image {
+		width: 100%;
+		height: 200px;
+		overflow: hidden;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	}
+
+	.project-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		opacity: 0.7;
+	}
+
+	.project-content {
+		padding: 1.5rem;
+	}
+
+	.project-content h3 {
+		font-size: 1.5rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.project-content p {
+		color: var(--color-text-light);
+		margin-bottom: 1rem;
+		line-height: 1.6;
+	}
+
+	/* Tags de tecnologías */
+	.project-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.tag {
+		background: var(--color-background-alt);
+		padding: 0.25rem 0.75rem;
+		border-radius: 20px;
+		font-size: 0.875rem;
+		color: var(--color-text-light);
+	}
+
+	.project-link {
+		color: var(--color-primary);
+		font-weight: 500;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.project-link:hover {
+		gap: 0.75rem;
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		#projects {
+			padding: 3rem 1.5rem;
+		}
+
+		.projects-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
