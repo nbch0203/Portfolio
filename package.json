@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^1.2.0",
     "astro": "^5.15.2"
   }
 }
