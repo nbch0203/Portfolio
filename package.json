@@ -11,5 +11,8 @@
   "dependencies": {
     "@vercel/speed-insights": "^1.2.0",
     "astro": "^5.15.2"
+  },
+  "devDependencies": {
+    "patch-package": "^8.0.1"
   }
 }
