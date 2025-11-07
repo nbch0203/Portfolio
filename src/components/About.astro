@@ -9,27 +9,55 @@ const aboutInfo = {
 	skills: [
 		'JavaScript',
 		'Java',
+		'Angular',
+		'vue.js',
+		'Python',
+		'Docker',
 		'HTML/CSS',
 		'Git & GitHub',
 		'Bases de datos SQL',
         'Desarrollo Android',
         'Administración de sistemas',
-        'Administración en la nube',
+        'Administración en la nube'
         
 	]
+
+/*	Lenguajes:[
+		'JavaScript',
+		'Java',
+		'Angular',
+		'vue.js',
+		'Python'
+
+	]*/
+
+	/*Programas:[
+		'IntelliJ IDEA',
+		'Eclipse',
+		'Docker',
+		'Visual Studio Code',
+		'Android Studio',
+		'Postman',
+		'MySQL Workbench'
+		'VirtualBox',
+	]*/
 };
 ---
 
 <section id="about">
 	<div class="container">
-		<h2>{aboutInfo.title}</h2>
+		<div class ="sobre_mi"><h2>{aboutInfo.title}
+
+		</h2>
+		</div>
+		
 		<div class="about-content">
 			<div class="about-text">
 				<p>{aboutInfo.description}</p>
 			</div>
 			
 			<div class="about-skills">
-				<h3>Habilidades</h3>
+				<h3 class="texto_habilidades">Habilidades</h3>
 				<div class="skills-grid">
 					{aboutInfo.skills.map(skill => (
 						<div class="skill-item">{skill}</div>
@@ -44,7 +72,9 @@ const aboutInfo = {
 	/* PERSONALIZA AQUÍ LA SECCIÓN ABOUT */
 	#about {
 		padding: 5rem 2rem;
-		background: var(--color-background-alt);
+		/* Fondo claro y diferenciable del hero oscuro púrpura */
+		background: linear-gradient(180deg, #3a2a5b 0%, #2e1f4d 100%); /* Color en la misma familia que el hero, más claro */
+		color: #ffffff; /* texto principal claro para buen contraste */
 	}
 
 	.container {
@@ -52,10 +82,48 @@ const aboutInfo = {
 		margin: 0 auto;
 	}
 
-	h2 {
-		font-size: clamp(2rem, 4vw, 3rem);
+	/* Encabezado "Sobre mí" con acento púrpura (similar al del Hero) */
+	.sobre_mi {
+		width: 60%;
+		margin: 0 auto;
 		text-align: center;
 		margin-bottom: 3rem;
+		background: linear-gradient(135deg, #8a6fbb 0%, #d0547a 100%); /* Color en la misma familia que el hero, más claro */
+		color: #ffffff; /* Asegura que el texto sea legible */
+		border-radius: 24px;
+		padding: 0.75rem 1.25rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		transition: all 0.3s ease;
+	}
+
+	.sobre_mi:hover {
+		border: 2px solid rgba(123, 97, 255, 0.95);
+		box-shadow: 0 6px 20px rgba(139, 92, 246, 0.18),
+					0 10px 40px rgba(123, 97, 255, 0.10);
+		transform: translateY(-4px);
+	}
+
+	@keyframes neonGlow {
+		0% {
+			box-shadow: 0 0 6px rgba(139, 92, 246, 0.25);
+		}
+		50% {
+			box-shadow: 0 0 12px rgba(123, 97, 255, 0.30);
+		}
+		100% {
+			box-shadow: 0 0 6px rgba(139, 92, 246, 0.25);
+		}
+	}
+
+	h2 {
+		font-size: clamp(2rem, 4vw, 3rem);
+		margin: 1rem 0;
+		text-align: center;
+		margin-bottom: 0;
+		color: #ffffff; /* título dentro del acento púrpura */
 	}
 
 	.about-content {
@@ -68,12 +136,14 @@ const aboutInfo = {
 	.about-text p {
 		font-size: 1.125rem;
 		line-height: 1.8;
-		color: var(--color-text-light);
+		color: #E6EDF9; /* texto legible sobre fondo oscuro */
+		background: rgba(255,255,255,0.0);
 	}
 
-	h3 {
+	.texto_habilidades {
 		font-size: 1.5rem;
 		margin-bottom: 1.5rem;
+		color: #E6EDF9;
 	}
 
 	/* Grid de habilidades */
@@ -84,7 +154,7 @@ const aboutInfo = {
 	}
 
 	.skill-item {
-		background: white;
+		background-color: #b7c4e0; /* Color en la misma familia que el hero, más oscuro */
 		padding: 1rem;
 		border-radius: 8px;
 		text-align: center;

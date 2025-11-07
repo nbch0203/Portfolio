@@ -35,6 +35,7 @@ const personalInfo = {
 <style>
 	/* PERSONALIZA AQUÍ LA SECCIÓN HERO */
 	#hero {
+		background-color: #0e0620;
 		position: relative;
 		min-height: 100vh;
 		display: flex;
@@ -45,15 +46,23 @@ const personalInfo = {
 	}
 
 	/* Fondo con degradado - Puedes cambiar los colores */
-	.hero-background {
+	/* Fondo oscuro legible */
+	.hero-background,
+	.hero-back,
+	.ground {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-		opacity: 0.1;
+		/* color base #120727 con ligera textura de degradado para profundidad */
+		background: radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.06), transparent 15%),
+					linear-gradient(180deg, #120727 0%, #0e0620 100%);
 		z-index: -1;
+	}
+
+	#hero {
+		color: #E6EDF9; /* texto principal claro para buen contraste */
 	}
 
 	.hero-content {
@@ -64,11 +73,12 @@ const personalInfo = {
 	h1 {
 		font-size: clamp(2rem, 5vw, 4rem);
 		margin-bottom: 1rem;
+		color: #FFFFFF; /* título bien visible */
 	}
 
-	/* Texto destacado - Cambia el gradiente aquí */
+	/* Texto destacado - gradiente visible sobre fondo oscuro */
 	.highlight {
-		background: linear-gradient(90deg, #3245ff 0%, #bc52ee 100%);
+		background: linear-gradient(90deg, #9B7CFF 0%, #FF70B8 100%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
@@ -78,16 +88,16 @@ const personalInfo = {
 		font-size: clamp(1.5rem, 3vw, 2.5rem);
 		font-weight: 400;
 		margin-bottom: 1.5rem;
-		color: var(--color-text-light);
+		color: #D7E3FF;
 	}
 
 	p {
 		font-size: clamp(1rem, 2vw, 1.25rem);
 		margin-bottom: 2rem;
-		color: var(--color-text-light);
+		color: #C8D6FF;
 	}
 
-	/* Botones - Personaliza colores y estilos */
+	/* Botones - colores diferenciados y con buen contraste */
 	.hero-buttons {
 		display: flex;
 		gap: 1rem;
@@ -99,29 +109,34 @@ const personalInfo = {
 		padding: 1rem 2rem;
 		border-radius: 10px;
 		font-weight: 500;
-		transition: all 0.3s ease;
+		transition: all 0.25s ease;
 		cursor: pointer;
+		border: none;
 	}
 
+	/* Botón primario: vibrante (púrpura/rosado) */
 	.btn-primary {
-		background: linear-gradient(90deg, #3245ff 0%, #bc52ee 100%);
-		color: white;
+		background: linear-gradient(90deg, #7B61FF 0%, #FF5EC4 100%);
+		color: #120727;
+		box-shadow: 0 8px 20px rgba(123, 97, 255, 0.18);
 	}
 
 	.btn-primary:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 10px 20px rgba(50, 69, 255, 0.3);
+		transform: translateY(-3px);
+		box-shadow: 0 14px 30px rgba(123, 97, 255, 0.25);
 	}
 
+	/* Botón secundario: cian/outline para diferenciar claramente */
 	.btn-secondary {
 		background: transparent;
-		border: 2px solid var(--color-primary);
-		color: var(--color-primary);
+		border: 2px solid rgba(0, 229, 255, 0.9);
+		color: rgba(0, 229, 255, 0.95);
 	}
 
 	.btn-secondary:hover {
-		background: var(--color-primary);
-		color: white;
+		background: rgba(0, 229, 255, 0.95);
+		color: #120727;
+		transform: translateY(-2px);
 	}
 
 	/* Responsive */
