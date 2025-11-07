@@ -35,7 +35,6 @@ const personalInfo = {
 <style>
 	/* PERSONALIZA AQUÍ LA SECCIÓN HERO */
 	#hero {
-		background-color: #0e0620;
 		position: relative;
 		min-height: 100vh;
 		display: flex;
@@ -43,10 +42,11 @@ const personalInfo = {
 		justify-content: center;
 		padding: 2rem;
 		overflow: hidden;
+		/* Degradado suave continuo */
+		background: transparent;
 	}
 
-	/* Fondo con degradado - Puedes cambiar los colores */
-	/* Fondo oscuro legible */
+	/* Fondo con degradado morado oscuro */
 	.hero-background,
 	.hero-back,
 	.ground {
@@ -55,14 +55,12 @@ const personalInfo = {
 		left: 0;
 		width: 100%;
 		height: 100%;
-		/* color base #120727 con ligera textura de degradado para profundidad */
-		background: radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.06), transparent 15%),
-					linear-gradient(180deg, #120727 0%, #0e0620 100%);
+		background: radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.06), transparent 15%);
 		z-index: -1;
 	}
 
 	#hero {
-		color: #E6EDF9; /* texto principal claro para buen contraste */
+		color: #E6EDF9;
 	}
 
 	.hero-content {
@@ -73,7 +71,7 @@ const personalInfo = {
 	h1 {
 		font-size: clamp(2rem, 5vw, 4rem);
 		margin-bottom: 1rem;
-		color: #FFFFFF; /* título bien visible */
+		color: #FFFFFF;
 	}
 
 	/* Texto destacado - gradiente visible sobre fondo oscuro */

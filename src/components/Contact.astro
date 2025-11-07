@@ -22,7 +22,7 @@ const contactInfo = {
 
 <section id="contact">
 	<div class="container">
-		<h2>{contactInfo.title}</h2>
+		<h2 class="container_contacto">{contactInfo.title}</h2>
 		<p class="subtitle">{contactInfo.description}</p>
 		
 		<div class="contact-content">
@@ -60,23 +60,61 @@ const contactInfo = {
 	/* PERSONALIZA AQUÍ LA SECCIÓN DE CONTACTO */
 	#contact {
 		padding: 5rem 2rem;
-		background: var(--color-background-alt);
+		/* Sin fondo, se ve el gradiente continuo */
+		background: transparent;
+		color: #ffffff;
 	}
 
 	.container {
 		max-width: 800px;
 		margin: 0 auto;
 	}
+	.container_contacto {
+		width: 40%;
+		margin: 0 auto;
+		text-align: center;
+		margin-bottom: 3rem;
+		background: linear-gradient(135deg, #8a6fbb 0%, #d0547a 100%);
+		color: #ffffff;
+		border-radius: 24px;
+		padding: 0.75rem 1.25rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		transition: all 0.3s ease;
+	}
+
+	.container_contacto:hover {
+		border: 2px solid rgba(123, 97, 255, 0.95);
+		box-shadow: 0 6px 20px rgba(139, 92, 246, 0.18),
+					0 10px 40px rgba(123, 97, 255, 0.10);
+		transform: translateY(-4px);
+	}
+
+	@keyframes neonGlow {
+		0% {
+			box-shadow: 0 0 6px rgba(139, 92, 246, 0.25);
+		}
+		50% {
+			box-shadow: 0 0 12px rgba(123, 97, 255, 0.30);
+		}
+		100% {
+			box-shadow: 0 0 6px rgba(139, 92, 246, 0.25);
+		}
+	}
 
 	h2 {
 		font-size: clamp(2rem, 4vw, 3rem);
+		margin-top: 1rem ;
 		text-align: center;
 		margin-bottom: 1rem;
+		color: #ffffff;
 	}
 
 	.subtitle {
 		text-align: center;
-		color: var(--color-text-light);
+		color: #C8D6FF;
 		margin-bottom: 3rem;
 		font-size: 1.125rem;
 	}

@@ -19,28 +19,7 @@ const aboutInfo = {
         'Desarrollo Android',
         'Administración de sistemas',
         'Administración en la nube'
-        
 	]
-
-/*	Lenguajes:[
-		'JavaScript',
-		'Java',
-		'Angular',
-		'vue.js',
-		'Python'
-
-	]*/
-
-	/*Programas:[
-		'IntelliJ IDEA',
-		'Eclipse',
-		'Docker',
-		'Visual Studio Code',
-		'Android Studio',
-		'Postman',
-		'MySQL Workbench'
-		'VirtualBox',
-	]*/
 };
 ---
 
@@ -72,9 +51,9 @@ const aboutInfo = {
 	/* PERSONALIZA AQUÍ LA SECCIÓN ABOUT */
 	#about {
 		padding: 5rem 2rem;
-		/* Fondo claro y diferenciable del hero oscuro púrpura */
-		background: linear-gradient(180deg, #3a2a5b 0%, #2e1f4d 100%); /* Color en la misma familia que el hero, más claro */
-		color: #ffffff; /* texto principal claro para buen contraste */
+		/* Sin fondo, se ve el gradiente continuo */
+		background: transparent;
+		color: #ffffff;
 	}
 
 	.container {
@@ -84,12 +63,12 @@ const aboutInfo = {
 
 	/* Encabezado "Sobre mí" con acento púrpura (similar al del Hero) */
 	.sobre_mi {
-		width: 60%;
+		width: 40%;
 		margin: 0 auto;
 		text-align: center;
 		margin-bottom: 3rem;
-		background: linear-gradient(135deg, #8a6fbb 0%, #d0547a 100%); /* Color en la misma familia que el hero, más claro */
-		color: #ffffff; /* Asegura que el texto sea legible */
+		background: linear-gradient(135deg, #8a6fbb 0%, #d0547a 100%);
+		color: #ffffff;
 		border-radius: 24px;
 		padding: 0.75rem 1.25rem;
 		display: flex;
@@ -120,10 +99,10 @@ const aboutInfo = {
 
 	h2 {
 		font-size: clamp(2rem, 4vw, 3rem);
-		margin: 1rem 0;
+		margin-top: 1rem ;
 		text-align: center;
-		margin-bottom: 0;
-		color: #ffffff; /* título dentro del acento púrpura */
+		margin-bottom: 1rem;
+		color: #ffffff;
 	}
 
 	.about-content {
@@ -136,7 +115,7 @@ const aboutInfo = {
 	.about-text p {
 		font-size: 1.125rem;
 		line-height: 1.8;
-		color: #E6EDF9; /* texto legible sobre fondo oscuro */
+		color: #E6EDF9;
 		background: rgba(255,255,255,0.0);
 	}
 
@@ -154,18 +133,21 @@ const aboutInfo = {
 	}
 
 	.skill-item {
-		background-color: #b7c4e0; /* Color en la misma familia que el hero, más oscuro */
+		background: linear-gradient(135deg, #2a2d3e 0%, #444863 100%);
+		color: #ffffff;
 		padding: 1rem;
 		border-radius: 8px;
 		text-align: center;
 		font-weight: 500;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 		transition: all 0.3s ease;
+		border: 1px solid rgba(255, 255, 255, 0.1);
 	}
 
 	.skill-item:hover {
 		transform: translateY(-4px);
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+		border-color: rgba(139, 92, 246, 0.5);
 	}
 
 	/* Responsive */
