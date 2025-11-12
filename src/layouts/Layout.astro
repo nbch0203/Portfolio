@@ -1,6 +1,7 @@
 ---
 // src/layouts/Layout.astro
 import  SpeedInsights  from "@vercel/speed-insights/astro";
+import Analytics from '@vercel/analytics/astro'
 ---
 
 <html lang="es">
@@ -16,6 +17,7 @@ import  SpeedInsights  from "@vercel/speed-insights/astro";
 
     <!-- Speed Insights: métrica de rendimiento de Vercel -->
     <SpeedInsights />
+	<Analytics />
   </body>
 </html>
 
