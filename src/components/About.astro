@@ -1,57 +1,89 @@
 ---
 // src/components/About.astro
-// PERSONALIZA: Tu información "Sobre mí"
 const aboutInfo = {
 	title: 'Sobre mí',
-	description: `Soy un desarrollador apasionado por crear soluciones web 
+	description_general: `Soy un desarrollador apasionado por crear soluciones web 
 	              innovadoras. Me encanta aprender nuevas tecnologías y 
 	              resolver problemas complejos.`,
-	skills: [
+	descripcion_programas: `He aprendido a utilizar diversas herramientas y programas 
+	                       que me permiten desarrollar proyectos de alta calidad 
+	                       y mantenerme actualizado en el campo de la tecnología.`,
+
+lenguajes:[
 		'JavaScript',
 		'Java',
-		'Angular',
-		'vue.js',
 		'Python',
-		'Docker',
 		'HTML/CSS',
-		'Git & GitHub',
-		'Bases de datos SQL',
-        'Desarrollo Android',
-        'Administración de sistemas',
-        'Administración en la nube'
+		'SQL',
+		'Bash/Shell Scripting',
+		'XML',
+		'JSON',
+		'Angular',
+		'Vue.js'
 	]
+
+
+
+,programs:[
+		'Visual Studio Code',
+		'IntelliJ IDEA',
+		'Android Studio',
+		'Git',
+		'Docker',
+		'AWS',
+		'Linux',
+		'Postman',
+		'MySQL workbench',
+		'Dbeaver'		
+	]
+
 };
 ---
 
 <section id="about">
 	<div class="container">
 		<div class ="sobre_mi"><h2>{aboutInfo.title}
-
 		</h2>
 		</div>
-		
 		<div class="about-content">
 			<div class="about-text">
-				<p>{aboutInfo.description}</p>
+				<p>{aboutInfo.description_general}</p>
 			</div>
 			
 			<div class="about-skills">
-				<h3 class="texto_habilidades">Habilidades</h3>
+				<h3 class="texto_habilidades">Programas aprendidos</h3>
 				<div class="skills-grid">
-					{aboutInfo.skills.map(skill => (
+					{aboutInfo.programs.map(skill => (
 						<div class="skill-item">{skill}</div>
 					))}
 				</div>
+				
+			</div>
+			<div class="about-lenguajes-grid">
+				<div class="about-lenguajes">
+					<h3 class="texto_habilidades">Lenguajes de programación</h3>
+					<div class="skills-grid">
+						{aboutInfo.lenguajes.map(skill => (
+							<div class="skill-item">{skill}</div>
+						))}
+					</div>
+				</div>
+			</div>
+			<div class="about-text">
+					<p class="lenguajes-text">{aboutInfo.descripcion_programas}
+					</p>
+				</div>
+
+
+				
 			</div>
 		</div>
 	</div>
 </section>
 
 <style>
-	/* PERSONALIZA AQUÍ LA SECCIÓN ABOUT */
 	#about {
 		padding: 5rem 2rem;
-		/* Sin fondo, se ve el gradiente continuo */
 		background: transparent;
 		color: #ffffff;
 	}
@@ -61,7 +93,6 @@ const aboutInfo = {
 		margin: 0 auto;
 	}
 
-	/* Encabezado "Sobre mí" con acento púrpura (similar al del Hero) */
 	.sobre_mi {
 		width: 40%;
 		margin: 0 auto;
@@ -118,6 +149,14 @@ const aboutInfo = {
 		color: #E6EDF9;
 		background: rgba(255,255,255,0.0);
 	}
+	.lenguajes-text p {
+		font-size: 1.125rem;
+		line-height: 1.8;
+		color: #E6EDF9;
+		background: rgba(255,255,255,0.0);
+		text-align: center;
+		margin-bottom: 1rem;
+	}
 
 	.texto_habilidades {
 		font-size: 1.5rem;
@@ -150,7 +189,6 @@ const aboutInfo = {
 		border-color: rgba(139, 92, 246, 0.5);
 	}
 
-	/* Responsive */
 	@media (max-width: 768px) {
 		#about {
 			padding: 3rem 1.5rem;
