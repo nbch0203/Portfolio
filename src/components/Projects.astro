@@ -6,7 +6,8 @@ const projects = [
 		description: 'Descripción breve del proyecto y las tecnologías utilizadas',
 		image: '/Repositorio_DAM.webp', 
 		link: 'https://github.com/nbch0203/DAM',
-		tags: ['Java', 'HTML', 'CSS', 'JavaScript', 'MySQL','Android']
+		tags: ['Java', 'HTML', 'CSS', 'JavaScript', 'MySQL','Android','C#',' .NET', 'WPF', 'AWS',
+		'SQLite',]
 	},
 	{
 		title:'Portafolio Personal',
@@ -58,11 +59,10 @@ const projects = [
 
 <style>
 	#projects {
-		padding: 5rem 2rem;
-		/* Fondo morado con degradado a negro menos marcado (negro con baja opacidad) */
-		background-color: rgba(147, 51, 234, 0.10);
-		background: linear-gradient(180deg, rgba(147, 51, 234, 0.15) 0%, rgba(0, 0, 0, 0.06) 100%);
+		padding: 8rem 2rem;
+		background: transparent;
 		color: #ffffff;
+		position: relative;
 	}
 
 	.container {
@@ -71,102 +71,125 @@ const projects = [
 	}
 	
 	.contenedor_proyectos {
-		width: 40%;
-		margin: 0 auto;
-		margin-bottom: 3rem;
-		background: linear-gradient(135deg, #8a6fbb 0%, #d0547a 100%);
-		color: #ffffff;
-		border-radius: 24px;
-		padding: 0.75rem 1.25rem ;
-		display: flex;
-		justify-content: center;
-		transition: all 0.3s ease;
+		max-width: 600px;
+		margin: 0 auto 2rem;
+		text-align: center;
+		position: relative;
 	}
 
-	.contenedor_proyectos:hover {
-		border: 2px solid rgba(123, 97, 255, 0.95);
-		box-shadow: 0 6px 20px rgba(139, 92, 246, 0.18),
-					0 10px 40px rgba(123, 97, 255, 0.10);
-		transform: translateY(-4px);
-	}
-
-	@keyframes neonGlow {
-		0% {
-			box-shadow: 0 0 6px rgba(139, 92, 246, 0.25);
-		}
-		50% {
-			box-shadow: 0 0 12px rgba(123, 97, 255, 0.30);
-		}
-		100% {
-			box-shadow: 0 0 6px rgba(139, 92, 246, 0.25);
-		}
+	.contenedor_proyectos::before {
+		content: '';
+		position: absolute;
+		top: -10px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 60px;
+		height: 4px;
+		background: linear-gradient(90deg, #9B7CFF 0%, #FF70B8 100%);
+		border-radius: 2px;
 	}
 
 	h2 {
-		font-size: clamp(2rem, 4vw, 3rem);
-		margin-top: 1rem;
+		font-size: clamp(2.5rem, 5vw, 3.5rem);
+		margin: 2rem 0 0;
 		text-align: center;
-		margin-bottom: 1rem;
 		color: #ffffff;
+		font-weight: 700;
+		letter-spacing: -1px;
 	}
 
 	.subtitle {
 		text-align: center;
-		color: #e6d9ff;
-		margin-bottom: 3rem;
-		font-size: 1.125rem;
+		color: rgba(255, 255, 255, 0.7);
+		margin-bottom: 4rem;
+		font-size: 1.1rem;
+		font-weight: 400;
 	}
 
 	/* Grid de proyectos */
 	.projects-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 2.5rem;
 	}
 
 	.project-card {
-		background: white;
-		border-radius: 12px;
+		background: rgba(255, 255, 255, 0.03);
+		border: 1px solid rgba(147, 51, 234, 0.2);
+		border-radius: 16px;
 		overflow: hidden;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-		transition: all 0.3s ease;
-		color: #0f1724; 
+		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		color: #ffffff;
+		position: relative;
+	}
+
+	.project-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(135deg, rgba(155, 124, 255, 0.05) 0%, rgba(255, 112, 184, 0.05) 100%);
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		pointer-events: none;
+	}
+
+	.project-card:hover::before {
+		opacity: 1;
 	}
 
 	.project-card:hover {
 		transform: translateY(-8px);
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+		border-color: rgba(155, 124, 255, 0.4);
+		box-shadow: 0 12px 40px rgba(155, 124, 255, 0.2);
 	}
 
 	.project-image {
 		width: 100%;
-		height: 200px;
+		height: 220px;
 		overflow: hidden;
-		/* Degradado de la imagen más sutil */
-		background: linear-gradient(135deg, rgba(147, 51, 234, 0.12) 0%, rgba(45, 11, 58, 0.06) 100%);
+		position: relative;
+	}
+
+	.project-image::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(180deg, transparent 0%, rgba(10, 1, 24, 0.3) 100%);
 	}
 
 	.project-image img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		opacity: 0.95;
+		transition: transform 0.4s ease;
+	}
+
+	.project-card:hover .project-image img {
+		transform: scale(1.08);
 	}
 
 	.project-content {
-		padding: 1.5rem;
+		padding: 2rem;
 	}
 
 	.project-content h3 {
 		font-size: 1.5rem;
 		margin-bottom: 0.75rem;
-		color: inherit; 
+		color: #ffffff;
+		font-weight: 600;
 	}
 
 	.project-content p {
-		color: #475569;
-		margin-bottom: 1rem;
+		color: rgba(255, 255, 255, 0.7);
+		margin-bottom: 1.5rem;
 		line-height: 1.6;
+		font-size: 0.95rem;
 	}
 
 	/* Tags de tecnologías */
@@ -174,39 +197,53 @@ const projects = [
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem;
-		margin-bottom: 1rem;
+		margin-bottom: 1.5rem;
 	}
 
 	.tag {
-		background: #f1f5f9;
-		padding: 0.25rem 0.75rem;
-		border-radius: 20px;
-		font-size: 0.875rem;
-		color: #1f2937; 
-		border: 1px solid #e2e8f0;
+		background: rgba(155, 124, 255, 0.15);
+		padding: 0.4rem 0.85rem;
+		border-radius: 6px;
+		font-size: 0.8rem;
+		color: rgba(255, 255, 255, 0.9);
+		border: 1px solid rgba(155, 124, 255, 0.3);
+		font-weight: 500;
+		transition: all 0.3s ease;
+	}
+
+	.tag:hover {
+		background: rgba(155, 124, 255, 0.25);
+		border-color: rgba(155, 124, 255, 0.5);
 	}
 
 	.project-link {
-		color: #ffd6ff; 
-		font-weight: 500;
+		color: #9B7CFF;
+		font-weight: 600;
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
+		transition: all 0.3s ease;
+		font-size: 0.95rem;
 	}
 
 	.project-link:hover {
 		gap: 0.75rem;
-		text-decoration: underline;
+		color: #FF70B8;
 	}
 
 	/* Responsive */
 	@media (max-width: 768px) {
 		#projects {
-			padding: 3rem 1.5rem;
+			padding: 5rem 1.5rem;
 		}
 
 		.projects-grid {
 			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.project-content {
+			padding: 1.5rem;
 		}
 	}
 </style>

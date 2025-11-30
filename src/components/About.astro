@@ -3,89 +3,99 @@
 const aboutInfo = {
 	title: 'Sobre mí',
 	description_general: `Soy un desarrollador apasionado por crear soluciones web 
-	              innovadoras. Me encanta aprender nuevas tecnologías y 
-	              resolver problemas complejos.`,
+				  innovadoras. Me encanta aprender nuevas tecnologías y 
+				  resolver problemas complejos.`,
 	descripcion_programas: `He aprendido a utilizar diversas herramientas y programas 
-	                       que me permiten desarrollar proyectos de alta calidad 
-	                       y mantenerme actualizado en el campo de la tecnología.`,
-
-lenguajes:[
+						   que me permiten desarrollar proyectos de alta calidad 
+						   y mantenerme actualizado en el campo de la tecnología.`,
+	lenguajes: [
 		'JavaScript',
 		'Java',
-		'Python',
 		'HTML/CSS',
 		'SQL',
 		'Bash/Shell Scripting',
 		'XML',
 		'JSON',
-		'Angular',
-		'Vue.js'
-	]
-
-
-
-,programs:[
+		'C#',
+	],
+	frameworks: [
+		'Vue.js',
+		'Node.js',
+		'Astro',
+		'Spring Boot',
+	],
+	programs: [
 		'Visual Studio Code',
 		'IntelliJ IDEA',
 		'Android Studio',
 		'Git',
+		'GitHub',
 		'Docker',
 		'AWS',
+		'Azure',
 		'Linux',
 		'Postman',
-		'MySQL workbench',
-		'Dbeaver'		
+		'MySQL Workbench',
+		'DBeaver',
+		'Eclipse',
+		'Vercel',
+		'WordPress',
 	]
-
 };
 ---
 
 <section id="about">
 	<div class="container">
-		<div class ="sobre_mi"><h2>{aboutInfo.title}
-		</h2>
+		<div class="sobre_mi">
+			<h2>{aboutInfo.title}</h2>
 		</div>
 		<div class="about-content">
 			<div class="about-text">
 				<p>{aboutInfo.description_general}</p>
 			</div>
 			
-			<div class="about-skills">
+			<div class="about-programs-grid">
 				<h3 class="texto_habilidades">Programas aprendidos</h3>
 				<div class="skills-grid">
-					{aboutInfo.programs.map(skill => (
-						<div class="skill-item">{skill}</div>
+					{aboutInfo.programs.map(program => (
+						<div class="skill-item">{program}</div>
 					))}
 				</div>
-				
 			</div>
+
+			<div class="about-frameworks-grid">
+				<h3 class="texto_habilidades">Frameworks</h3>
+				<div class="skills-grid">
+					{aboutInfo.frameworks.map(framework => (
+						<div class="skill-item">{framework}</div>
+					))}
+				</div>
+			</div>
+
 			<div class="about-lenguajes-grid">
-				<div class="about-lenguajes">
-					<h3 class="texto_habilidades">Lenguajes de programación</h3>
-					<div class="skills-grid">
-						{aboutInfo.lenguajes.map(skill => (
-							<div class="skill-item">{skill}</div>
-						))}
-					</div>
+				<h3 class="texto_habilidades">Lenguajes de programación</h3>
+				<div class="about-text">
+				<p class="lenguajes-text">{aboutInfo.descripcion_programas}</p>
+			</div>
+
+				<div class="skills-grid">
+					{aboutInfo.lenguajes.map(language => (
+						<div class="skill-item">{language}</div>
+					))}
 				</div>
 			</div>
-			<div class="about-text">
-					<p class="lenguajes-text">{aboutInfo.descripcion_programas}
-					</p>
-				</div>
 
-
-				
-			</div>
+			
 		</div>
 	</div>
 </section>
 
 <style>
 	#about {
-		padding: 5rem 2rem;
+		padding: 8rem 2rem;
 		background: transparent;
 		color: #ffffff;
+		position: relative;
 	}
 
 	.container {
@@ -94,113 +104,170 @@ lenguajes:[
 	}
 
 	.sobre_mi {
-		width: 40%;
-		margin: 0 auto;
+		max-width: 600px;
+		margin: 0 auto 5rem;
 		text-align: center;
-		margin-bottom: 3rem;
-		background: linear-gradient(135deg, #8a6fbb 0%, #d0547a 100%);
-		color: #ffffff;
-		border-radius: 24px;
-		padding: 0.75rem 1.25rem;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		position: relative;
-		transition: all 0.3s ease;
 	}
 
-	.sobre_mi:hover {
-		border: 2px solid rgba(123, 97, 255, 0.95);
-		box-shadow: 0 6px 20px rgba(139, 92, 246, 0.18),
-					0 10px 40px rgba(123, 97, 255, 0.10);
-		transform: translateY(-4px);
-	}
-
-	@keyframes neonGlow {
-		0% {
-			box-shadow: 0 0 6px rgba(139, 92, 246, 0.25);
-		}
-		50% {
-			box-shadow: 0 0 12px rgba(123, 97, 255, 0.30);
-		}
-		100% {
-			box-shadow: 0 0 6px rgba(139, 92, 246, 0.25);
-		}
+	.sobre_mi::before {
+		content: '';
+		position: absolute;
+		top: -10px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 60px;
+		height: 4px;
+		background: linear-gradient(90deg, #9B7CFF 0%, #FF70B8 100%);
+		border-radius: 2px;
 	}
 
 	h2 {
-		font-size: clamp(2rem, 4vw, 3rem);
-		margin-top: 1rem ;
-		text-align: center;
-		margin-bottom: 1rem;
+		font-size: clamp(2.5rem, 5vw, 3.5rem);
+		margin: 2rem 0 1rem;
 		color: #ffffff;
+		font-weight: 700;
+		letter-spacing: -1px;
 	}
 
 	.about-content {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 3rem;
-		align-items: start;
+		grid-template-columns: 1fr;
+		gap: 4rem;
+	}
+
+	.about-text {
+		text-align: center;
+		max-width: 800px;
+		margin: 0 auto 3rem;
 	}
 
 	.about-text p {
-		font-size: 1.125rem;
+		font-size: 1.15rem;
 		line-height: 1.8;
-		color: #E6EDF9;
-		background: rgba(255,255,255,0.0);
+		color: rgba(255, 255, 255, 0.85);
 	}
-	.lenguajes-text p {
-		font-size: 1.125rem;
-		line-height: 1.8;
-		color: #E6EDF9;
-		background: rgba(255,255,255,0.0);
-		text-align: center;
-		margin-bottom: 1rem;
+
+	.about-programs-grid,
+	.about-frameworks-grid,
+	.about-lenguajes-grid {
+		background: rgba(147, 51, 234, 0.05);
+		border: 1px solid rgba(147, 51, 234, 0.15);
+		border-radius: 16px;
+		padding: 3rem 2.5rem;
+		backdrop-filter: blur(10px);
+		transition: all 0.3s ease;
+	}
+
+	.about-programs-grid:hover,
+	.about-frameworks-grid:hover,
+	.about-lenguajes-grid:hover {
+		border-color: rgba(147, 51, 234, 0.3);
+		box-shadow: 0 8px 32px rgba(147, 51, 234, 0.1);
+		transform: translateY(-2px);
 	}
 
 	.texto_habilidades {
-		font-size: 1.5rem;
-		margin-bottom: 1.5rem;
-		color: #E6EDF9;
+		font-size: 1.75rem;
+		margin-bottom: 2rem;
+		color: #ffffff;
+		font-weight: 600;
+		text-align: center;
+		position: relative;
+		padding-bottom: 1rem;
 	}
 
-	/* Grid de habilidades */
+	.texto_habilidades::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 50px;
+		height: 3px;
+		background: linear-gradient(90deg, #9B7CFF 0%, #FF70B8 100%);
+		border-radius: 2px;
+	}
+
+	.lenguajes-text {
+		text-align: center;
+		margin-bottom: 2rem;
+		font-size: 1.05rem;
+		color: rgba(255, 255, 255, 0.75);
+		line-height: 1.7;
+	}
+
 	.skills-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
 		gap: 1rem;
 	}
 
 	.skill-item {
-		background: linear-gradient(135deg, #2a2d3e 0%, #444863 100%);
+		background: rgba(255, 255, 255, 0.05);
 		color: #ffffff;
-		padding: 1rem;
-		border-radius: 8px;
+		padding: 1rem 1.25rem;
+		border-radius: 10px;
 		text-align: center;
 		font-weight: 500;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+		font-size: 0.95rem;
+		border: 1px solid rgba(255, 255, 255, 0.08);
 		transition: all 0.3s ease;
-		border: 1px solid rgba(255, 255, 255, 0.1);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.skill-item::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(155, 124, 255, 0.2), transparent);
+		transition: left 0.5s ease;
+	}
+
+	.skill-item:hover::before {
+		left: 100%;
 	}
 
 	.skill-item:hover {
 		transform: translateY(-4px);
-		box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
-		border-color: rgba(139, 92, 246, 0.5);
+		background: rgba(155, 124, 255, 0.15);
+		border-color: rgba(155, 124, 255, 0.4);
+		box-shadow: 0 4px 20px rgba(155, 124, 255, 0.2);
+	}
+
+	@media (max-width: 968px) {
+		.skills-grid {
+			grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+		}
 	}
 
 	@media (max-width: 768px) {
 		#about {
-			padding: 3rem 1.5rem;
+			padding: 5rem 1.5rem;
+		}
+
+		.about-programs-grid,
+		.about-frameworks-grid,
+		.about-lenguajes-grid {
+			padding: 2rem 1.5rem;
 		}
 
 		.about-content {
-			grid-template-columns: 1fr;
-			gap: 2rem;
+			gap: 2.5rem;
 		}
 
 		.skills-grid {
-			grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+			gap: 0.75rem;
+		}
+
+		.skill-item {
+			padding: 0.85rem 1rem;
+			font-size: 0.9rem;
 		}
 	}
 </style>

@@ -10,55 +10,111 @@ import Presentacion from '../components/Presentacion.astro';
 
 
 <Layout title="Mi Portfolio - Inicio">
+	<nav class="navegacion">
+		<div class="nav-container">
+			<div class="nav-logo">Nixon Cruz</div>
+			<div class="nav-links">
+				<a href="#presentacion">Inicio</a>
+				<a href="#about">About</a>
+				<a href="#projects">Proyectos</a>
+				<a href="#contact">Contacto</a>
+			</div>
+		</div>
+	</nav>
 	
 	<Presentacion />
-	<nav class="navegacion">
-		<a href="#about">About me</a>
-		<a href="#projects">Proyectos</a>
-		<a href="#resume">Resume</a>
-		<a href="#contact">Contacto</a>
-	</nav>
-	<section id="about">
-		<About />
-	</section>
-	<section id="projects">
-		<Projects />
-	</section>
-	<section id="contact">
-		<Contact />
-	</section>
+	<About />
+	<Projects />
+	<Contact />
 </Layout>
 
 <style>
+	html {
+		scroll-behavior: smooth;
+	}
+
 	.navegacion {
-		position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-		padding: 1rem;
-		background-color: #4a148c;
-		backdrop-filter: blur(10px);
-		 
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1000;
+		background: rgba(26, 11, 46, 0.85);
+		backdrop-filter: blur(20px) saturate(180%);
+		border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		transition: all 0.3s ease;
+	}
+
+	.nav-container {
+		max-width: 1400px;
+		margin: 0 auto;
+		padding: 1rem 2rem;
 		display: flex;
-		gap: 2rem;
+		justify-content: space-between;
+		align-items: center;
 	}
 
-	.navegacion a {
+	.nav-logo {
+		font-size: 1.5rem;
+		font-weight: 700;
+		background: linear-gradient(90deg, #9B7CFF 0%, #FF70B8 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		letter-spacing: -0.5px;
+	}
+
+	.nav-links {
+		display: flex;
+		gap: 2.5rem;
+		align-items: center;
+	}
+
+	.nav-links a {
 		text-decoration: none;
-		color: white; 
+		color: rgba(255, 255, 255, 0.85);
+		font-weight: 500;
+		font-size: 0.95rem;
+		position: relative;
 		transition: color 0.3s ease;
+		padding: 0.5rem 0;
 	}
 
-
-	/* Light purple on hover */
-	.navegacion a:hover {
-		color: #e1bee7; 
+	.nav-links a::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background: linear-gradient(90deg, #9B7CFF 0%, #FF70B8 100%);
+		transition: width 0.3s ease;
 	}
 
-</style>
+	.nav-links a:hover {
+		color: #ffffff;
+	}
 
-<style>
-	/* Estilos específicos de la página de inicio */
-	/* Puedes agregar estilos adicionales aquí */
+	.nav-links a:hover::after {
+		width: 100%;
+	}
+
+	@media (max-width: 768px) {
+		.nav-container {
+			padding: 0.75rem 1rem;
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		.nav-links {
+			gap: 1.5rem;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.nav-links a {
+			font-size: 0.9rem;
+		}
+	}
 </style>

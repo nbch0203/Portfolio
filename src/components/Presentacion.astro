@@ -39,13 +39,12 @@ const personalInfo = {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 2rem;
+		padding: 6rem 2rem 2rem;
 		overflow: hidden;
-		/* Degradado suave continuo */
 		background: transparent;
 	}
 
-	/* Fondo con degradado morado oscuro */
+	/* Efectos de fondo sutiles */
 	.hero-background,
 	.hero-back,
 	.ground {
@@ -54,23 +53,34 @@ const personalInfo = {
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.06), transparent 15%);
+		background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08), transparent 50%);
 		z-index: -1;
 	}
 
-	#hero {
-		color: #E6EDF9;
+	.hero-content {
+		max-width: 900px;
+		text-align: center;
+		animation: fadeInUp 1s ease-out;
 	}
 
-	.hero-content {
-		max-width: 800px;
-		text-align: center;
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
 	h1 {
-		font-size: clamp(2rem, 5vw, 4rem);
-		margin-bottom: 1rem;
+		font-size: clamp(2.5rem, 6vw, 4.5rem);
+		margin-bottom: 1.5rem;
 		color: #FFFFFF;
+		font-weight: 800;
+		line-height: 1.2;
+		letter-spacing: -1.5px;
 	}
 
 	.highlight {
@@ -78,73 +88,140 @@ const personalInfo = {
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
+		display: inline-block;
 	}
 
 	h2 {
-		font-size: clamp(1.5rem, 3vw, 2.5rem);
-		font-weight: 400;
-		margin-bottom: 1.5rem;
-		color: #D7E3FF;
+		font-size: clamp(1.5rem, 3vw, 2.25rem);
+		font-weight: 500;
+		margin-bottom: 2rem;
+		color: rgba(255, 255, 255, 0.85);
+		letter-spacing: -0.5px;
 	}
 
 	p {
-		font-size: clamp(1rem, 2vw, 1.25rem);
-		margin-bottom: 2rem;
-		color: #C8D6FF;
+		font-size: clamp(1.05rem, 2vw, 1.2rem);
+		margin-bottom: 3rem;
+		color: rgba(255, 255, 255, 0.7);
+		line-height: 1.7;
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.hero-buttons {
 		display: flex;
-		gap: 1rem;
+		gap: 1.25rem;
 		justify-content: center;
 		flex-wrap: wrap;
 	}
 
 	.btn {
-		padding: 1rem 2rem;
-		border-radius: 10px;
-		font-weight: 500;
-		transition: all 0.25s ease;
+		padding: 1.1rem 2.5rem;
+		border-radius: 12px;
+		font-weight: 600;
+		font-size: 1rem;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 		cursor: pointer;
 		border: none;
+		letter-spacing: 0.3px;
 	}
 
-	/* Botón primario: vibrante (púrpura/rosado) */
+	/* Botón primario */
 	.btn-primary {
-		background: linear-gradient(90deg, #7B61FF 0%, #FF5EC4 100%);
-		color: #120727;
-		box-shadow: 0 8px 20px rgba(123, 97, 255, 0.18);
+		background: linear-gradient(135deg, #7B61FF 0%, #FF5EC4 100%);
+		color: #ffffff;
+		box-shadow: 0 8px 20px rgba(123, 97, 255, 0.3);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.btn-primary::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+		transition: left 0.5s ease;
+	}
+
+	.btn-primary:hover::before {
+		left: 100%;
 	}
 
 	.btn-primary:hover {
 		transform: translateY(-3px);
-		box-shadow: 0 14px 30px rgba(123, 97, 255, 0.25);
+		box-shadow: 0 12px 30px rgba(123, 97, 255, 0.4);
 	}
 
-	/* Botón secundario: cian/outline para diferenciar claramente */
+	.btn-primary:active {
+		transform: translateY(-1px);
+	}
+
+	/* Botón secundario */
 	.btn-secondary {
 		background: transparent;
-		border: 2px solid rgba(0, 229, 255, 0.9);
-		color: rgba(0, 229, 255, 0.95);
+		border: 2px solid rgba(155, 124, 255, 0.5);
+		color: rgba(255, 255, 255, 0.95);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.btn-secondary::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 100%;
+		background: rgba(155, 124, 255, 0.2);
+		transition: width 0.3s ease;
+		z-index: -1;
+	}
+
+	.btn-secondary:hover::before {
+		width: 100%;
 	}
 
 	.btn-secondary:hover {
-		background: rgba(0, 229, 255, 0.95);
-		color: #120727;
+		border-color: rgba(155, 124, 255, 0.8);
 		transform: translateY(-2px);
+		box-shadow: 0 8px 20px rgba(155, 124, 255, 0.2);
+	}
+
+	.btn-secondary:active {
+		transform: translateY(0);
 	}
 
 	@media (max-width: 768px) {
-		#hero {
-			min-height: 80vh;
+		#presentacion {
+			min-height: 90vh;
+			padding: 5rem 1.5rem 2rem;
 		}
 
 		.hero-buttons {
 			flex-direction: column;
+			width: 100%;
+			max-width: 300px;
+			margin: 0 auto;
 		}
 
 		.btn {
 			width: 100%;
+		}
+
+		h1 {
+			margin-bottom: 1.25rem;
+		}
+
+		h2 {
+			margin-bottom: 1.5rem;
+		}
+
+		p {
+			margin-bottom: 2.5rem;
 		}
 	}
 </style>
