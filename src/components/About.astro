@@ -2,211 +2,128 @@
 // src/components/About.astro
 const aboutInfo = {
 	title: 'Sobre mí',
-	description_general: `Soy un desarrollador apasionado por crear soluciones web 
-				  innovadoras. Me encanta aprender nuevas tecnologías y 
-				  resolver problemas complejos.`,
-	descripcion_programas: `He aprendido a utilizar diversas herramientas y programas 
-						   que me permiten desarrollar proyectos de alta calidad 
-						   y mantenerme actualizado en el campo de la tecnología.`,
-	lenguajes: [
-		'JavaScript',
-		'Java',
-		'HTML/CSS',
-		'SQL',
-		'Bash/Shell Scripting',
-		'XML',
-		'JSON',
-		'C#',
-	],
-	frameworks: [
-		'Vue.js',
-		'Node.js',
-		'Astro',
-		'Spring Boot',
-	],
-	programs: [
-		'Visual Studio Code',
-		'IntelliJ IDEA',
-		'Android Studio',
-		'Git',
-		'GitHub',
-		'Docker',
-		'AWS',
-		'Azure',
-		'Linux',
-		'Postman',
-		'MySQL Workbench',
-		'DBeaver',
-		'Eclipse',
-		'Vercel',
-		'WordPress',
-	]
+	description_general: 'Me especializo en construir soluciones web y multiplataforma con foco en estructura, mantenibilidad y una presentación visual más sólida.',
+	intro_second: 'Trabajo con herramientas que me permiten prototipar, desarrollar y entregar proyectos con una base técnica consistente.',
+	lenguajes: ['JavaScript', 'Java', 'HTML/CSS', 'SQL', 'Bash/Shell Scripting', 'XML', 'JSON', 'C#'],
+	frameworks: ['Vue.js', 'Node.js', 'Astro', 'Spring Boot', 'Django'],
+	programs: ['Visual Studio Code', 'IntelliJ IDEA', 'Android Studio', 'Git', 'GitHub', 'Docker', 'AWS', 'Azure', 'Linux', 'Postman', 'MySQL Workbench', 'DBeaver', 'Eclipse', 'Vercel', 'WordPress', 'MongoDB'],
 };
+
+// Prioridad: mostrar solo las herramientas más relevantes por defecto
+const primaryPrograms = ['Visual Studio Code', 'Git', 'GitHub', 'Docker', 'AWS', 'Linux', 'Postman', 'MongoDB', 'MySQL Workbench', 'Vercel'];
+const otherPrograms = aboutInfo.programs.filter((p) => !primaryPrograms.includes(p));
+
 ---
 
-<section id="about">
-	<div class="container">
-		<div class="sobre_mi">
-			<h2>{aboutInfo.title}</h2>
+<section id="about" class="portfolio-section">
+	<div class="section-shell">
+		<div class="section-title">
+			<div class="section-eyebrow">Perfil</div>
+			<h2 class="section-heading">{aboutInfo.title}</h2>
+			<p class="section-lead">{aboutInfo.description_general}</p>
 		</div>
-		<div class="about-content">
-			<div class="about-text">
-				<p>{aboutInfo.description_general}</p>
+
+		<div class="about-grid">
+			<div class="about-card about-card-intro">
+				<h3>Cómo trabajo</h3>
+				<p>{aboutInfo.intro_second}</p>
 			</div>
-			
-			<div class="about-programs-grid">
-				<h3 class="texto_habilidades">Programas aprendidos</h3>
+
+			<div class="about-card">
+				<h3>Lenguajes</h3>
 				<div class="skills-grid">
-					{aboutInfo.programs.map(program => (
-						<div class="skill-item">{program}</div>
-					))}
+					{aboutInfo.lenguajes.map((language) => <div class="skill-item">{language}</div>)}
 				</div>
 			</div>
 
-			<div class="about-frameworks-grid">
-				<h3 class="texto_habilidades">Frameworks</h3>
+			<div class="about-card">
+				<h3>Frameworks</h3>
 				<div class="skills-grid">
-					{aboutInfo.frameworks.map(framework => (
-						<div class="skill-item">{framework}</div>
-					))}
+					{aboutInfo.frameworks.map((framework) => <div class="skill-item">{framework}</div>)}
 				</div>
 			</div>
 
-			<div class="about-lenguajes-grid">
-				<h3 class="texto_habilidades">Lenguajes de programación</h3>
-				<div class="about-text">
-				<p class="lenguajes-text">{aboutInfo.descripcion_programas}</p>
-			</div>
-
+			<div class="about-card about-card-tools">
+				<h3>Herramientas</h3>
 				<div class="skills-grid">
-					{aboutInfo.lenguajes.map(language => (
-						<div class="skill-item">{language}</div>
-					))}
+					{primaryPrograms.map((program) => <div class="skill-item">{program}</div>)}
 				</div>
-			</div>
 
-			
+				{otherPrograms.length > 0 && (
+					<details class="other-tools">
+						<summary>Mostrar más</summary>
+						<div class="skills-grid other-grid">
+							{otherPrograms.map((program) => <div class="skill-item">{program}</div>)}
+						</div>
+					</details>
+				)}
+
+			</div>
 		</div>
 	</div>
 </section>
 
 <style>
 	#about {
-		padding: 8rem 2rem;
-		background: transparent;
-		color: #ffffff;
-		position: relative;
+		padding-top: 0.5rem;
 	}
 
-	.container {
-		max-width: 1200px;
-		margin: 0 auto;
-	}
-
-	.sobre_mi {
-		max-width: 600px;
-		margin: 0 auto 5rem;
-		text-align: center;
-		position: relative;
-	}
-
-	.sobre_mi::before {
-		content: '';
-		position: absolute;
-		top: -10px;
-		left: 50%;
-		transform: translateX(-50%);
-		width: 60px;
-		height: 4px;
-		background: linear-gradient(90deg, #9B7CFF 0%, #FF70B8 100%);
-		border-radius: 2px;
-	}
-
-	h2 {
-		font-size: clamp(2.5rem, 5vw, 3.5rem);
-		margin: 2rem 0 1rem;
-		color: #ffffff;
-		font-weight: 700;
-		letter-spacing: -1px;
-	}
-
-	.about-content {
+	.about-grid {
 		display: grid;
-		grid-template-columns: 1fr;
-		gap: 4rem;
+		grid-template-columns: repeat(12, minmax(0, 1fr));
+		gap: 1.25rem;
 	}
 
-	.about-text {
-		text-align: center;
-		max-width: 800px;
-		margin: 0 auto 3rem;
+	.about-card {
+		grid-column: span 6;
+		padding: 1.5rem;
+		border-radius: 20px;
+		background: rgba(255, 255, 255, 0.03);
+		border: 1px solid rgba(155, 124, 255, 0.16);
+		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 	}
 
-	.about-text p {
-		font-size: 1.15rem;
-		line-height: 1.8;
-		color: rgba(255, 255, 255, 0.85);
+	.about-card:hover {
+		transform: translateY(-3px);
+		border-color: rgba(155, 124, 255, 0.3);
+		box-shadow: 0 18px 40px rgba(4, 2, 12, 0.28);
 	}
 
-	.about-programs-grid,
-	.about-frameworks-grid,
-	.about-lenguajes-grid {
-		background: rgba(147, 51, 234, 0.05);
-		border: 1px solid rgba(147, 51, 234, 0.15);
-		border-radius: 16px;
-		padding: 3rem 2.5rem;
-		backdrop-filter: blur(10px);
-		transition: all 0.3s ease;
+	.about-card-intro {
+		grid-column: span 12;
+		background: linear-gradient(135deg, rgba(155, 124, 255, 0.1), rgba(255, 255, 255, 0.03));
 	}
 
-	.about-programs-grid:hover,
-	.about-frameworks-grid:hover,
-	.about-lenguajes-grid:hover {
-		border-color: rgba(147, 51, 234, 0.3);
-		box-shadow: 0 8px 32px rgba(147, 51, 234, 0.1);
-		transform: translateY(-2px);
+	.about-card-tools {
+		grid-column: 1 / -1;
 	}
 
-	.texto_habilidades {
-		font-size: 1.75rem;
-		margin-bottom: 2rem;
+	.about-card h3 {
+		font-size: 1.2rem;
+		margin-bottom: 0.95rem;
 		color: #ffffff;
-		font-weight: 600;
-		text-align: center;
-		position: relative;
-		padding-bottom: 1rem;
 	}
 
-	.texto_habilidades::after {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		transform: translateX(-50%);
-		width: 50px;
-		height: 3px;
-		background: linear-gradient(90deg, #9B7CFF 0%, #FF70B8 100%);
-		border-radius: 2px;
-	}
-
-	.lenguajes-text {
-		text-align: center;
-		margin-bottom: 2rem;
-		font-size: 1.05rem;
-		color: rgba(255, 255, 255, 0.75);
-		line-height: 1.7;
+	.about-card p {
+		font-size: 1rem;
+		line-height: 1.8;
+		color: rgba(255, 255, 255, 0.72);
 	}
 
 	.skills-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 		gap: 1rem;
+		justify-content: center;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 800px;
 	}
 
 	.skill-item {
 		background: rgba(255, 255, 255, 0.05);
 		color: #ffffff;
-		padding: 1rem 1.25rem;
+		padding: 0.95rem 1rem;
 		border-radius: 10px;
 		text-align: center;
 		font-weight: 500;
@@ -215,6 +132,10 @@ const aboutInfo = {
 		transition: all 0.3s ease;
 		position: relative;
 		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 45px;
 	}
 
 	.skill-item::before {
@@ -239,35 +160,39 @@ const aboutInfo = {
 		box-shadow: 0 4px 20px rgba(155, 124, 255, 0.2);
 	}
 
-	@media (max-width: 968px) {
-		.skills-grid {
-			grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-		}
-	}
-
 	@media (max-width: 768px) {
-		#about {
-			padding: 5rem 1.5rem;
-		}
-
-		.about-programs-grid,
-		.about-frameworks-grid,
-		.about-lenguajes-grid {
-			padding: 2rem 1.5rem;
-		}
-
-		.about-content {
-			gap: 2.5rem;
+		.about-card {
+			grid-column: span 12;
 		}
 
 		.skills-grid {
-			grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
 			gap: 0.75rem;
+			grid-template-columns: repeat(2, minmax(130px, 150px));
 		}
 
 		.skill-item {
-			padding: 0.85rem 1rem;
+			min-height: 40px;
+			padding: 0.75rem 0.75rem;
 			font-size: 0.9rem;
 		}
+	}
+
+	/* Styles for the 'Mostrar más' details */
+	details.other-tools {
+		margin-top: 1rem;
+	}
+
+	details.other-tools summary {
+		cursor: pointer;
+		list-style: none;
+		padding: 0.5rem 0;
+		color: rgba(255,255,255,0.9);
+		font-weight: 600;
+	}
+
+	details.other-tools summary::-webkit-details-marker { display:none; }
+
+	.other-grid {
+		margin-top: 0.75rem;
 	}
 </style>

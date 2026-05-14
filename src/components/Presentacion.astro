@@ -1,86 +1,77 @@
 ---
-// src/components/Hero.astro
-// PERSONALIZA: Tu información personal
 const personalInfo = {
 	name: 'Nixon Bolivar Cruz Hidalgo',
 	title: 'Desarrollador de aplicaciones multiplataforma',
-	description: 'Bienvenido a mi portfolio personal. Explora mis proyectos y no dudes en contactarme para colaborar.',
+	description:
+		'Diseño y desarrollo experiencias web y aplicaciones funcionales con foco en claridad, mantenimiento y una ejecución visual más profesional.',
 	cta: {
-		primary: 'Mis proyectos',
-		secondary: 'Contacto'
-	}
+		primary: 'Ver proyectos',
+		secondary: 'Contactar',
+	},
+	highlights: ['Java','Python','Astro', 'JavaScript', 'C#', 'SQL'],
 };
 ---
 
-<section id="presentacion">
-	<div class="hero-back ground"></div>
-	<div class="hero-content">
-		<h1>
-			Hola, soy <span class="highlight">{personalInfo.name}</span>
-		</h1>
-		<h2>{personalInfo.title}</h2>
-		<p>{personalInfo.description}</p>
-		
-		<div class="hero-buttons">
-			<a href="#projects" class="btn btn-primary">
-				{personalInfo.cta.primary}
-			</a>
-			<a href="#contact" class="btn btn-secondary">
-				{personalInfo.cta.secondary}
-			</a>
+<section id="presentacion" class="portfolio-section hero-section">
+	<div class="section-shell hero-shell">
+		<div class="hero-grid">
+			<div class="hero-copy">
+				<div class="section-eyebrow">Portfolio profesional</div>
+				<h1>
+					Hola, soy <span class="highlight">{personalInfo.name}</span>
+				</h1>
+				<p class="hero-title">{personalInfo.title}</p>
+				<p class="hero-description">{personalInfo.description}</p>
+				<div class="hero-buttons">
+					<a href="#projects" class="btn btn-primary">
+						{personalInfo.cta.primary}
+					</a>
+					<a href="#contact" class="btn btn-secondary">
+						{personalInfo.cta.secondary}
+					</a>
+				</div>
+			</div>
+
+			<div class="hero-panel">
+				<div class="panel-badge">Disponible para nuevos proyectos</div>
+				<h2>Enfoque</h2>
+				<p>
+					Construyo interfaces limpias, estructura sólida y una base técnica que haga que el portfolio se vea confiable a primera vista.
+				</p>
+				<div class="highlight-grid">
+					{personalInfo.highlights.map((item) => <span class="highlight-pill">{item}</span>)}
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
 
 <style>
 	#presentacion {
-		position: relative;
-		min-height: 100vh;
-		display: flex;
+		padding-top: 1.5rem;
+	}
+
+	.hero-shell {
+		padding-block: clamp(2.5rem, 5vw, 4rem);
+	}
+
+	.hero-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+		gap: clamp(1.5rem, 3vw, 2.5rem);
 		align-items: center;
-		justify-content: center;
-		padding: 6rem 2rem 2rem;
-		overflow: hidden;
-		background: transparent;
 	}
 
-	/* Efectos de fondo sutiles */
-	.hero-background,
-	.hero-back,
-	.ground {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08), transparent 50%);
-		z-index: -1;
-	}
-
-	.hero-content {
-		max-width: 900px;
-		text-align: center;
-		animation: fadeInUp 1s ease-out;
-	}
-
-	@keyframes fadeInUp {
-		from {
-			opacity: 0;
-			transform: translateY(30px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
+	.hero-copy {
+		max-width: 760px;
 	}
 
 	h1 {
-		font-size: clamp(2.5rem, 6vw, 4.5rem);
-		margin-bottom: 1.5rem;
-		color: #FFFFFF;
-		font-weight: 800;
-		line-height: 1.2;
-		letter-spacing: -1.5px;
+		font-size: clamp(2.8rem, 6vw, 5rem);
+		line-height: 1.02;
+		letter-spacing: -0.05em;
+		color: #ffffff;
+		margin-bottom: 1rem;
 	}
 
 	.highlight {
@@ -88,140 +79,131 @@ const personalInfo = {
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
-		display: inline-block;
 	}
 
-	h2 {
-		font-size: clamp(1.5rem, 3vw, 2.25rem);
-		font-weight: 500;
+	.hero-title {
+		font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+		font-weight: 600;
+		color: rgba(255, 255, 255, 0.88);
+		margin-bottom: 1rem;
+	}
+
+	.hero-description {
+		font-size: 1.06rem;
+		line-height: 1.8;
+		color: rgba(255, 255, 255, 0.72);
+		max-width: 620px;
 		margin-bottom: 2rem;
-		color: rgba(255, 255, 255, 0.85);
-		letter-spacing: -0.5px;
-	}
-
-	p {
-		font-size: clamp(1.05rem, 2vw, 1.2rem);
-		margin-bottom: 3rem;
-		color: rgba(255, 255, 255, 0.7);
-		line-height: 1.7;
-		max-width: 700px;
-		margin-left: auto;
-		margin-right: auto;
 	}
 
 	.hero-buttons {
 		display: flex;
-		gap: 1.25rem;
-		justify-content: center;
+		gap: 1rem;
 		flex-wrap: wrap;
 	}
 
 	.btn {
-		padding: 1.1rem 2.5rem;
-		border-radius: 12px;
-		font-weight: 600;
-		font-size: 1rem;
-		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-		cursor: pointer;
-		border: none;
-		letter-spacing: 0.3px;
+		padding: 1rem 1.6rem;
+		border-radius: 14px;
+		font-weight: 700;
+		font-size: 0.98rem;
+		transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+		letter-spacing: 0.02em;
 	}
 
-	/* Botón primario */
-	.btn-primary {
-		background: linear-gradient(135deg, #7B61FF 0%, #FF5EC4 100%);
-		color: #ffffff;
-		box-shadow: 0 8px 20px rgba(123, 97, 255, 0.3);
-		position: relative;
-		overflow: hidden;
-	}
-
-	.btn-primary::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: -100%;
-		width: 100%;
-		height: 100%;
-		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-		transition: left 0.5s ease;
-	}
-
-	.btn-primary:hover::before {
-		left: 100%;
-	}
-
-	.btn-primary:hover {
-		transform: translateY(-3px);
-		box-shadow: 0 12px 30px rgba(123, 97, 255, 0.4);
-	}
-
-	.btn-primary:active {
-		transform: translateY(-1px);
-	}
-
-	/* Botón secundario */
-	.btn-secondary {
-		background: transparent;
-		border: 2px solid rgba(155, 124, 255, 0.5);
-		color: rgba(255, 255, 255, 0.95);
-		position: relative;
-		overflow: hidden;
-	}
-
-	.btn-secondary::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 0;
-		height: 100%;
-		background: rgba(155, 124, 255, 0.2);
-		transition: width 0.3s ease;
-		z-index: -1;
-	}
-
-	.btn-secondary:hover::before {
-		width: 100%;
-	}
-
-	.btn-secondary:hover {
-		border-color: rgba(155, 124, 255, 0.8);
+	.btn:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 8px 20px rgba(155, 124, 255, 0.2);
 	}
 
-	.btn-secondary:active {
-		transform: translateY(0);
+	.btn-primary {
+		background: linear-gradient(135deg, #7b61ff 0%, #ff5ec4 100%);
+		color: #ffffff;
+		box-shadow: 0 14px 30px rgba(123, 97, 255, 0.28);
+	}
+
+	.btn-secondary {
+		background: rgba(255, 255, 255, 0.03);
+		border: 1px solid rgba(155, 124, 255, 0.35);
+		color: rgba(255, 255, 255, 0.95);
+	}
+
+	.hero-panel {
+		padding: 1.5rem;
+		border-radius: 22px;
+		background: linear-gradient(180deg, rgba(155, 124, 255, 0.12), rgba(255, 255, 255, 0.03));
+		border: 1px solid rgba(155, 124, 255, 0.24);
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+	}
+
+	.panel-badge {
+		display: inline-flex;
+		padding: 0.45rem 0.8rem;
+		border-radius: 999px;
+		background: rgba(155, 124, 255, 0.12);
+		border: 1px solid rgba(155, 124, 255, 0.22);
+		color: rgba(255, 255, 255, 0.9);
+		font-size: 0.8rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		margin-bottom: 1rem;
+	}
+
+	.hero-panel h2 {
+		font-size: 1.5rem;
+		color: #ffffff;
+		margin-bottom: 0.75rem;
+	}
+
+	.hero-panel p {
+		font-size: 0.98rem;
+		line-height: 1.75;
+		color: rgba(255, 255, 255, 0.72);
+		margin-bottom: 1.2rem;
+	}
+
+	.highlight-grid {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+	}
+
+	.highlight-pill {
+		padding: 0.65rem 0.9rem;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.06);
+		border: 1px solid rgba(155, 124, 255, 0.18);
+		color: rgba(255, 255, 255, 0.88);
+		font-size: 0.9rem;
+		font-weight: 600;
+	}
+
+	@media (max-width: 860px) {
+		.hero-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.hero-panel {
+			order: -1;
+		}
 	}
 
 	@media (max-width: 768px) {
 		#presentacion {
-			min-height: 90vh;
-			padding: 5rem 1.5rem 2rem;
+			padding-top: 1rem;
+		}
+
+		.hero-shell {
+			padding-block: 2rem;
 		}
 
 		.hero-buttons {
 			flex-direction: column;
-			width: 100%;
-			max-width: 300px;
-			margin: 0 auto;
 		}
 
 		.btn {
 			width: 100%;
-		}
-
-		h1 {
-			margin-bottom: 1.25rem;
-		}
-
-		h2 {
-			margin-bottom: 1.5rem;
-		}
-
-		p {
-			margin-bottom: 2.5rem;
+			text-align: center;
 		}
 	}
 </style>

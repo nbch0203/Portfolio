@@ -11,7 +11,10 @@
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "astro": "^5.15.2"
+    "astro": "^5.15.2",
+    "nodemailer": "^6.9.4"
+    ,
+    "@sendgrid/mail": "^7.7.0"
   },
   "devDependencies": {
     "patch-package": "^8.0.1"

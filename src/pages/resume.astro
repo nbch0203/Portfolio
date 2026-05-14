@@ -1,5 +1,8 @@
 ---
-// src/components/Resume.astro
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
 const resumeData = {
 	title: 'Currículum Vitae',
 	fullName: 'Nixon Cruz',
@@ -36,103 +39,117 @@ const resumeData = {
 	
 	skills: {
 		frontend: ['Vue.js', 'Astro', 'HTML/CSS', 'JavaScript'],
-		backend: ['Node.js', 'Java', 'Spring Boot', 'Django', 'MongoDB', 'SQL'],
+		backend: ['Node.js', 'Java', 'Spring Boot', 'SQL'],
 		tools: ['Git', 'Docker', 'AWS', 'Linux']
 	}
 };
 ---
 
-<section id="resume" class="portfolio-section">
-	<div class="section-shell">
-		<div class="section-title">
-			<div class="section-eyebrow">Perfil</div>
-			<h2 class="section-heading">{resumeData.title}</h2>
-			<p class="section-lead">{resumeData.summary}</p>
-		</div>
+<Layout title="CV - Nixon Cruz">
+	<Navigation currentPage="resume" />
 
-		<div class="resume-container">
-			<!-- Header -->
-			<div class="resume-header">
-				<div class="resume-header-content">
-					<h1>{resumeData.fullName}</h1>
-					<p class="resume-position">{resumeData.position}</p>
+	<main class="resume-page-content">
+		<section id="resume" class="portfolio-section">
+			<div class="section-shell">
+				<div class="section-title">
+					<div class="section-eyebrow">Perfil</div>
+					<h2 class="section-heading">{resumeData.title}</h2>
+					<p class="section-lead">{resumeData.summary}</p>
 				</div>
-				<button class="btn-download" onclick="window.open('https://drive.google.com/file/d/1rssn6W_VZ1qvLh04bXbwxoJX4GhrENgY/view?usp=drive_link', '_blank')">
-					<span>Descargar CV</span>
-					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-						<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-						<polyline points="7 10 12 15 17 10"></polyline>
-						<line x1="12" y1="15" x2="12" y2="3"></line>
-					</svg>
-				</button>
-			</div>
 
-			<!-- Experience -->
-			<div class="resume-section">
-				<h3 class="resume-section-title">Experiencia Laboral</h3>
-				<div class="resume-entries">
-					{resumeData.experience.map((job) => (
-						<div class="resume-entry">
-							<div class="entry-header">
-								<div>
-									<h4>{job.title}</h4>
-									<p class="entry-company">{job.company}</p>
+				<div class="resume-container">
+					<!-- Header -->
+					<div class="resume-header">
+						<div class="resume-header-content">
+							<h1>{resumeData.fullName}</h1>
+							<p class="resume-position">{resumeData.position}</p>
+						</div>
+						<button class="btn-download" onclick="window.open('https://drive.google.com/file/d/1rssn6W_VZ1qvLh04bXbwxoJX4GhrENgY/view?usp=sharing', '_blank')">
+							<span>Descargar CV</span>
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+								<polyline points="7 10 12 15 17 10"></polyline>
+								<line x1="12" y1="15" x2="12" y2="3"></line>
+							</svg>
+						</button>
+					</div>
+
+					<!-- Experience -->
+					<div class="resume-section">
+						<h3 class="resume-section-title">Experiencia Laboral</h3>
+						<div class="resume-entries">
+							{resumeData.experience.map((job) => (
+								<div class="resume-entry">
+									<div class="entry-header">
+										<div>
+											<h4>{job.title}</h4>
+											<p class="entry-company">{job.company}</p>
+										</div>
+										<span class="entry-period">{job.period}</span>
+									</div>
+									<p class="entry-description">{job.description}</p>
 								</div>
-								<span class="entry-period">{job.period}</span>
-							</div>
-							<p class="entry-description">{job.description}</p>
+							))}
 						</div>
-					))}
-				</div>
-			</div>
+					</div>
 
-			<!-- Education -->
-			<div class="resume-section">
-				<h3 class="resume-section-title">Formación Académica</h3>
-				<div class="resume-entries">
-					{resumeData.education.map((edu) => (
-						<div class="resume-entry">
-							<div class="entry-header">
-								<div>
-									<h4>{edu.degree}</h4>
-									<p class="entry-company">{edu.institution}</p>
+					<!-- Education -->
+					<div class="resume-section">
+						<h3 class="resume-section-title">Formación Académica</h3>
+						<div class="resume-entries">
+							{resumeData.education.map((edu) => (
+								<div class="resume-entry">
+									<div class="entry-header">
+										<div>
+											<h4>{edu.degree}</h4>
+											<p class="entry-company">{edu.institution}</p>
+										</div>
+										<span class="entry-period">{edu.year}</span>
+									</div>
 								</div>
-								<span class="entry-period">{edu.year}</span>
+							))}
+						</div>
+					</div>
+
+					<!-- Skills -->
+					<div class="resume-section">
+						<h3 class="resume-section-title">Competencias Técnicas</h3>
+						<div class="resume-skills">
+							<div class="skill-category">
+								<h5>Frontend</h5>
+								<div class="skill-tags">
+									{resumeData.skills.frontend.map((skill) => <span class="skill-tag">{skill}</span>)}
+								</div>
+							</div>
+							<div class="skill-category">
+								<h5>Backend</h5>
+								<div class="skill-tags">
+									{resumeData.skills.backend.map((skill) => <span class="skill-tag">{skill}</span>)}
+								</div>
+							</div>
+							<div class="skill-category">
+								<h5>Herramientas</h5>
+								<div class="skill-tags">
+									{resumeData.skills.tools.map((skill) => <span class="skill-tag">{skill}</span>)}
+								</div>
 							</div>
 						</div>
-					))}
+					</div>
 				</div>
 			</div>
+		</section>
+	</main>
 
-			<!-- Skills -->
-			<div class="resume-section">
-				<h3 class="resume-section-title">Competencias Técnicas</h3>
-				<div class="resume-skills">
-					<div class="skill-category">
-						<h5>Frontend</h5>
-						<div class="skill-tags">
-							{resumeData.skills.frontend.map((skill) => <span class="skill-tag">{skill}</span>)}
-						</div>
-					</div>
-					<div class="skill-category">
-						<h5>Backend</h5>
-						<div class="skill-tags">
-							{resumeData.skills.backend.map((skill) => <span class="skill-tag">{skill}</span>)}
-						</div>
-					</div>
-					<div class="skill-category">
-						<h5>Herramientas</h5>
-						<div class="skill-tags">
-							{resumeData.skills.tools.map((skill) => <span class="skill-tag">{skill}</span>)}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+	<Footer />
+</Layout>
 
 <style>
+	.resume-page-content {
+		display: grid;
+		gap: 1rem;
+		padding-top: 6rem;
+	}
+
 	#resume {
 		padding-top: 0.5rem;
 	}
@@ -161,6 +178,7 @@ const resumeData = {
 		background: linear-gradient(90deg, #9B7CFF 0%, #FF70B8 100%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+		background-clip: text;
 	}
 
 	.resume-position {
@@ -295,6 +313,10 @@ const resumeData = {
 	}
 
 	@media (max-width: 768px) {
+		.resume-page-content {
+			padding-top: 5rem;
+		}
+
 		.resume-header {
 			flex-direction: column;
 			gap: 1.5rem;

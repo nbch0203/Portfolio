@@ -13,16 +13,26 @@ Inside of your Astro project, you'll see the following folders and files:
 ```text
 /
 ├── public/
-│   └── favicon.svg
+│   ├── favicon.svg
+|   ├── imagen_portfolio.webp
+|   └── repositorio_DAM.webp
+|   
 ├── src
 │   ├── assets
 │   │   └── astro.svg
 │   ├── components
-│   │   └── Welcome.astro
+│   │   ├── About.astro
+|   |   ├── Contact.astro
+|   |   ├── Footer.astro
+|   |   ├── Navigation.astro
+|   |   ├── Presentacion.astro
+|   |   ├── Projects.astro
+|   |   └── Resume.astro
 │   ├── layouts
 │   │   └── Layout.astro
 │   └── pages
-│       └── index.astro
+│       ├── index.astro
+|       └── resume.astro
 └── package.json
 ```
 
