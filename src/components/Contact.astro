@@ -3,18 +3,18 @@
 const contactInfo = {
   title: "Contacto",
   description:
-    "Estoy disponible para nuevas oportunidades, colaboración freelance o roles donde pueda aportar valor en frontend y desarrollo multiplataforma.",
+    "Estoy disponible para nuevas oportunidades.",
   // Nota: email no se expone aquí por privacidad; se gestiona desde el servidor vía env
   social: [
     {
       name: "GitHub",
       url: "https://github.com/nbch0203",
-      icon: "🐙",
+      icon: "github",
     },
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/nixon-bolivar-cruz-hidalgo-19a078268/",
-      icon: "💼",
+      icon: "linkedin",
     },
   ],
 };
@@ -65,21 +65,15 @@ const contactInfo = {
         <div class="contact-hero-copy">
           <div class="contact-kicker">Hablemos</div>
           <h3>¿Tienes una idea, colaboración o vacante?</h3>
-          <p>
-            Cuéntame brevemente sobre tu proyecto y te responderé con los
-            siguientes pasos.
-          </p>
-          <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=nixonbcruzh@gmail.com&su=Hola encantado de conocerte&body=Hola, quiero contactar contigo."
-            target="_blank"
-            class="btn-submit">
-            Redactar en Gmail
-          </a>
+         
         </div>
       </div>
 
       <div class="social-section">
-        <h3 class="social-title">Encuéntrame en</h3>
+          <h3 class="social-title">Redes oficiales</h3>
+          <p class="social-lead">
+            Puedes revisar mis perfiles oficiales y ver actividad, proyectos y experiencia actualizada.
+          </p>
         <div class="social-grid">
           {
             contactInfo.social.map((social) => (
@@ -90,7 +84,18 @@ const contactInfo = {
                 rel="noopener noreferrer"
                 aria-label={social.name}
               >
-                <span class="social-icon">{social.icon}</span>
+                {social.icon === "github" && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="social-icon" aria-hidden="true">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
+                )}
+                {social.icon === "linkedin" && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="social-icon" aria-hidden="true">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                )}
                 <span class="social-name">{social.name}</span>
                 <span class="arrow">→</span>
               </a>
@@ -318,11 +323,19 @@ const contactInfo = {
 
   .social-title {
     font-size: 1.2rem;
-    margin-bottom: 1.1rem;
+    margin-bottom: 0.45rem;
     text-align: center;
     color: rgba(255, 255, 255, 0.95);
     font-weight: 600;
     letter-spacing: -0.02em;
+  }
+
+  .social-lead {
+    margin-bottom: 1.1rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.68);
+    line-height: 1.6;
+    font-size: 0.95rem;
   }
 
   .social-grid {
@@ -431,7 +444,18 @@ const contactInfo = {
   }
 
   .social-icon {
-    font-size: 2rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(155, 124, 255, 0.16);
+    border: 1px solid rgba(155, 124, 255, 0.25);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
     flex-shrink: 0;
     transition: transform 0.3s ease;
   }

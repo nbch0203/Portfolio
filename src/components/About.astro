@@ -2,16 +2,12 @@
 // src/components/About.astro
 const aboutInfo = {
 	title: 'Sobre mí',
-	description_general: 'Me especializo en construir soluciones web y multiplataforma con foco en estructura, mantenibilidad y una presentación visual más sólida.',
 	intro_second: 'Trabajo con herramientas que me permiten prototipar, desarrollar y entregar proyectos con una base técnica consistente.',
 	lenguajes: ['JavaScript', 'Java', 'HTML/CSS', 'SQL', 'Bash/Shell Scripting', 'XML', 'JSON', 'C#'],
 	frameworks: ['Vue.js', 'Node.js', 'Astro', 'Spring Boot', 'Django'],
-	programs: ['Visual Studio Code', 'IntelliJ IDEA', 'Android Studio', 'Git', 'GitHub', 'Docker', 'AWS', 'Azure', 'Linux', 'Postman', 'MySQL Workbench', 'DBeaver', 'Eclipse', 'Vercel', 'WordPress', 'MongoDB'],
 };
 
-// Prioridad: mostrar solo las herramientas más relevantes por defecto
-const primaryPrograms = ['Visual Studio Code', 'Git', 'GitHub', 'Docker', 'AWS', 'Linux', 'Postman', 'MongoDB', 'MySQL Workbench', 'Vercel'];
-const otherPrograms = aboutInfo.programs.filter((p) => !primaryPrograms.includes(p));
+
 
 ---
 
@@ -20,7 +16,6 @@ const otherPrograms = aboutInfo.programs.filter((p) => !primaryPrograms.includes
 		<div class="section-title">
 			<div class="section-eyebrow">Perfil</div>
 			<h2 class="section-heading">{aboutInfo.title}</h2>
-			<p class="section-lead">{aboutInfo.description_general}</p>
 		</div>
 
 		<div class="about-grid">
@@ -42,21 +37,6 @@ const otherPrograms = aboutInfo.programs.filter((p) => !primaryPrograms.includes
 					{aboutInfo.frameworks.map((framework) => <div class="skill-item">{framework}</div>)}
 				</div>
 			</div>
-
-			<div class="about-card about-card-tools">
-				<h3>Herramientas</h3>
-				<div class="skills-grid">
-					{primaryPrograms.map((program) => <div class="skill-item">{program}</div>)}
-				</div>
-
-				{otherPrograms.length > 0 && (
-					<details class="other-tools">
-						<summary>Mostrar más</summary>
-						<div class="skills-grid other-grid">
-							{otherPrograms.map((program) => <div class="skill-item">{program}</div>)}
-						</div>
-					</details>
-				)}
 
 			</div>
 		</div>
