@@ -9,7 +9,7 @@ const { currentPage = 'home' } = Astro.props;
 
 const navLinks = [
 	{ label: 'Inicio', href: '/#presentacion', section: 'presentacion' },
-	{ label: 'About', href: '/#about', section: 'about' },
+	{ label: 'Sobre mí', href: '/#about', section: 'about' },
 	{ label: 'Proyectos', href: '/#projects', section: 'projects' },
 	{ label: 'Contacto', href: '/#contact', section: 'contact' },
    // { label: 'CV', href: '/resume', section: 'resume' },
@@ -50,9 +50,9 @@ const navLinks = [
 		left: 0;
 		right: 0;
 		z-index: 1000;
-		background: rgba(26, 11, 46, 0.85);
+		background: rgba(20, 20, 20, 0.85);
 		backdrop-filter: blur(20px) saturate(180%);
-		border-bottom: 1px solid rgba(155, 124, 255, 0.18);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 		transition: all 0.3s ease;
 	}
@@ -83,10 +83,7 @@ const navLinks = [
 	.nav-logo {
 		font-size: 1.5rem;
 		font-weight: 700;
-		background: linear-gradient(90deg, #9B7CFF 0%, #FF70B8 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+		color: #ffffff;
 		letter-spacing: -0.5px;
 		margin: 0;
 	}
@@ -103,7 +100,7 @@ const navLinks = [
 		gap: 2.5rem;
 		align-items: center;
 		padding: 0.45rem 0.75rem;
-		border: 1px solid rgba(155, 124, 255, 0.12);
+		border: 1px solid rgba(255, 255, 255, 0.12);
 		border-radius: 999px;
 		background: rgba(255, 255, 255, 0.03);
 	}
@@ -125,7 +122,7 @@ const navLinks = [
 		left: 0;
 		width: 0;
 		height: 2px;
-		background: linear-gradient(90deg, #9B7CFF 0%, #FF70B8 100%);
+		background: #808080;
 		transition: width 0.3s ease;
 	}
 

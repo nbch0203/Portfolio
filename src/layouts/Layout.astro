@@ -11,7 +11,7 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content={description} />
-		<meta name="theme-color" content="#11071f" />
+		<meta name="theme-color" content="#0f0f0f" />
 		<title>{title}</title>
     <slot name="head" />
   </head>
@@ -24,17 +24,17 @@ const {
 <style is:global>
 	/* Variables CSS */
 	:root {
-		--color-primary: #9333ea;
-		--color-secondary: #bc52ee;
-		--color-accent: #ff70b8;
+		--color-primary: #1a1a1a;
+		--color-secondary: #404040;
+		--color-accent: #808080;
 		--color-text: #ffffff;
-		--color-text-light: #e2e2e2;
-		--color-background: #0f061b;
-		--color-surface: rgba(16, 9, 30, 0.72);
-		--color-surface-strong: rgba(22, 11, 42, 0.88);
-		--color-section-border: rgba(155, 124, 255, 0.18);
-		--color-section-border-strong: rgba(155, 124, 255, 0.3);
-		--shadow-elevated: 0 22px 60px rgba(4, 2, 12, 0.45);
+		--color-text-light: #b0b0b0;
+		--color-background: #0f0f0f;
+		--color-surface: rgba(255, 255, 255, 0.05);
+		--color-surface-strong: rgba(255, 255, 255, 0.08);
+		--color-section-border: rgba(255, 255, 255, 0.1);
+		--color-section-border-strong: rgba(255, 255, 255, 0.15);
+		--shadow-elevated: 0 10px 30px rgba(0, 0, 0, 0.3);
 		--radius-section: 28px;
 	}
 
@@ -54,10 +54,8 @@ const {
 
 	body {
 		background: 
-			radial-gradient(circle at 15% 20%, rgba(155, 124, 255, 0.12), transparent 28%),
-			radial-gradient(circle at 85% 15%, rgba(255, 112, 184, 0.08), transparent 24%),
-			radial-gradient(circle at 80% 80%, rgba(155, 124, 255, 0.07), transparent 28%),
-			linear-gradient(180deg, #100617 0%, #0f061b 45%, #0c0515 100%);
+			radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.03), transparent 28%),
+			linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 45%, #050505 100%);
 		background-attachment: fixed;
 		min-height: 100vh;
 		padding-top: 70px;
@@ -100,7 +98,7 @@ const {
 	h1, h2, h3, h4, h5, h6 {
 		line-height: 1.2;
 		font-weight: 600;
-		color: var(--color-secondary);
+		color: #ffffff;
 	}
 
 	p {
@@ -108,7 +106,7 @@ const {
 	}
 
 	a {
-		color: var(--color-secondary);
+		color: #ffffff;
 		text-decoration: none;
 		transition: all 0.3s ease;
 	}
@@ -125,7 +123,7 @@ const {
 		max-width: 1240px;
 		margin: 0 auto;
 		padding: clamp(2rem, 4vw, 3.5rem);
-		background: linear-gradient(180deg, rgba(18, 9, 31, 0.9) 0%, rgba(13, 7, 24, 0.82) 100%);
+		background: linear-gradient(180deg, rgba(30, 30, 30, 0.9) 0%, rgba(20, 20, 20, 0.82) 100%);
 		border: 1px solid var(--color-section-border);
 		border-radius: var(--radius-section);
 		box-shadow: var(--shadow-elevated);
@@ -138,7 +136,7 @@ const {
 		content: '';
 		position: absolute;
 		inset: 0;
-		background: linear-gradient(135deg, rgba(155, 124, 255, 0.08), transparent 35%, rgba(255, 112, 184, 0.04));
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 35%, rgba(255, 255, 255, 0.02));
 		pointer-events: none;
 	}
 
@@ -159,8 +157,8 @@ const {
 		gap: 0.5rem;
 		padding: 0.45rem 0.9rem;
 		border-radius: 999px;
-		border: 1px solid rgba(155, 124, 255, 0.24);
-		background: rgba(155, 124, 255, 0.08);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		background: rgba(255, 255, 255, 0.08);
 		color: rgba(255, 255, 255, 0.82);
 		font-size: 0.82rem;
 		font-weight: 600;

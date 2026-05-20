@@ -177,7 +177,7 @@ const contactInfo = {
   .contact-email-card,
   .social-section {
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(155, 124, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 1.5rem;
     transition:
@@ -190,15 +190,15 @@ const contactInfo = {
   .contact-email-card:hover,
   .social-section:hover {
     transform: translateY(-3px);
-    border-color: rgba(155, 124, 255, 0.3);
-    box-shadow: 0 18px 40px rgba(4, 2, 12, 0.28);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
   }
 
   .contact-hero-copy {
     background: linear-gradient(
       135deg,
-      rgba(155, 124, 255, 0.1),
-      rgba(255, 255, 255, 0.03)
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02)
     );
     display: grid;
     align-content: start;
@@ -210,8 +210,8 @@ const contactInfo = {
     width: fit-content;
     padding: 0.45rem 0.8rem;
     border-radius: 999px;
-    background: rgba(155, 124, 255, 0.12);
-    border: 1px solid rgba(155, 124, 255, 0.22);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.78rem;
     font-weight: 800;
@@ -236,9 +236,10 @@ const contactInfo = {
     gap: 1rem;
     background: linear-gradient(
       135deg,
-      rgba(155, 124, 255, 0.14),
-      rgba(255, 112, 184, 0.06)
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.03)
     );
+    position: relative;
   }
 
   .contact-email-card::before {
@@ -248,15 +249,11 @@ const contactInfo = {
     pointer-events: none;
     background: radial-gradient(
       circle at top right,
-      rgba(255, 112, 184, 0.14),
+      rgba(255, 255, 255, 0.08),
       transparent 34%
     );
     opacity: 0.7;
-  }
-
-  .contact-email-card,
-  .social-section {
-    position: relative;
+    border-radius: 20px;
   }
 
   .email-card {
@@ -265,10 +262,10 @@ const contactInfo = {
     gap: 1rem;
     background: linear-gradient(
       135deg,
-      rgba(155, 124, 255, 0.12),
-      rgba(255, 255, 255, 0.03)
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.02)
     );
-    border: 1px solid rgba(155, 124, 255, 0.24);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 1.5rem;
     border-radius: 20px;
     transition:
@@ -280,13 +277,13 @@ const contactInfo = {
 
   .email-card:hover {
     transform: translateY(-3px);
-    border-color: rgba(155, 124, 255, 0.35);
-    box-shadow: 0 18px 40px rgba(4, 2, 12, 0.28);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
   }
 
   .email-icon {
     font-size: 2.5rem;
-    filter: drop-shadow(0 4px 8px rgba(155, 124, 255, 0.3));
+    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.1));
     flex-shrink: 0;
   }
 
@@ -306,13 +303,13 @@ const contactInfo = {
   .email-link {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #9b7cff;
+    color: #ffffff;
     transition: all 0.3s ease;
     text-decoration: none;
   }
 
   .email-link:hover {
-    color: #ff70b8;
+    color: #b0b0b0;
     transform: scale(1.05);
   }
 
@@ -353,10 +350,10 @@ const contactInfo = {
   .contact-form {
     background: linear-gradient(
       135deg,
-      rgba(155, 124, 255, 0.06),
+      rgba(255, 255, 255, 0.05),
       rgba(255, 255, 255, 0.02)
     );
-    border: 1px solid rgba(155, 124, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     padding: 1.25rem;
     display: grid;
@@ -366,43 +363,51 @@ const contactInfo = {
     gap: 0.75rem;
     display: grid;
   }
+  
   .contact-form .form-row {
     display: grid;
     gap: 0.45rem;
   }
+  
   .contact-form .form-label {
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.8);
     font-weight: 700;
   }
+  
   .contact-form .form-input {
     padding: 0.6rem 0.8rem;
     border-radius: 10px;
-    border: 1px solid rgba(155, 124, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     background: rgba(0, 0, 0, 0.22);
     color: rgba(255, 255, 255, 0.95);
   }
+  
   .contact-form .form-textarea {
     min-height: 110px;
     resize: vertical;
   }
+  
   .form-actions {
     margin-top: 0.25rem;
     display: flex;
     align-items: center;
   }
+  
   .btn-submit {
-    background: linear-gradient(90deg, #9b7cff, #ff70b8);
+    background: linear-gradient(90deg, #333333, #1a1a1a);
     color: #fff;
     border: none;
     padding: 0.65rem 0.95rem;
     border-radius: 10px;
     font-weight: 700;
     cursor: pointer;
+    transition: all 0.3s ease;
   }
+  
   .btn-submit:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(155, 124, 255, 0.14);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
   }
 
   .contact-gmail-btn {
@@ -416,8 +421,8 @@ const contactInfo = {
     align-items: center;
     gap: 1rem;
     padding: 1.25rem 1.4rem;
-    background: rgba(155, 124, 255, 0.08);
-    border: 1px solid rgba(155, 124, 255, 0.25);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 12px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     color: rgba(255, 255, 255, 0.9);
@@ -437,7 +442,7 @@ const contactInfo = {
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(155, 124, 255, 0.15),
+      rgba(255, 255, 255, 0.15),
       transparent
     );
     transition: left 0.5s ease;
@@ -448,10 +453,10 @@ const contactInfo = {
   }
 
   .social-link:hover {
-    background: rgba(155, 124, 255, 0.15);
-    border-color: rgba(155, 124, 255, 0.5);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(155, 124, 255, 0.25);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   }
 
   .social-icon {
@@ -461,8 +466,8 @@ const contactInfo = {
     align-items: center;
     justify-content: center;
     border-radius: 999px;
-    background: rgba(155, 124, 255, 0.16);
-    border: 1px solid rgba(155, 124, 255, 0.25);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     color: #ffffff;
     font-size: 0.9rem;
     font-weight: 800;
